@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d09c86fb-7e48-414a-a2c4-e730686c71a4" name="默认变更列表" comment="">
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/ywl/springboot/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/ywl/springboot/bean/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/ywl/springboot/controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/ywl/springboot/controller/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/ywl/springboot/mapper/PersonMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/ywl/springboot/mapper/PersonMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo01" beforeDir="false" afterPath="$PROJECT_DIR$/Demo01" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo" beforeDir="false" afterPath="$PROJECT_DIR$/demo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/demo" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -31,11 +31,13 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-service-provider/src/main/java/com/ywl/dubbo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -115,10 +117,34 @@
       <updated>1619576054093</updated>
       <workItem from="1619576055360" duration="88000" />
       <workItem from="1621392651999" duration="233000" />
+      <workItem from="1622110782287" duration="351000" />
     </task>
+    <task id="LOCAL-00001" summary="本地D盘所有联系的Demo">
+      <created>1622110970465</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622110970465</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="本地D盘所有联系的Demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="本地D盘所有联系的Demo" />
   </component>
 </project>

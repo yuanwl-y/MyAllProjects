@@ -1,0 +1,6 @@
+spring:
+ data:
+    #ElasticSearch的连接地址
+    elasticsearch:
+      cluster-name: elasticsearch   //es节点名称
+      cluster-nodes: localhost:9300 //这里是tcp连接，所以用9300端口

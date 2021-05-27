@@ -1,0 +1,67 @@
+2021-04-05 17:30:27.207 [restartedMain] INFO  com.ywl.springboot01.Springboot01Application - Starting Springboot01Application using Java 1.8.0_05 on 你是猪吗 with PID 17508 (D:\IdeaAllProject\springboot01\target\classes started by 听风看月 in D:\IdeaAllProject\springboot01)
+2021-04-05 17:30:27.209 [restartedMain] INFO  com.ywl.springboot01.Springboot01Application - No active profile set, falling back to default profiles: default
+2021-04-05 17:30:27.241 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-05 17:30:27.241 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-05 17:30:27.643 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-05 17:30:27.645 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-05 17:30:27.659 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2021-04-05 17:30:28.018 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-04-05 17:30:28.025 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 17:30:28.025 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-04-05 17:30:28.025 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-05 17:30:28.081 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-04-05 17:30:28.081 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 838 ms
+2021-04-05 17:30:28.113 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-04-05 17:30:28.123 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 17:32:49.109 [restartedMain] INFO  com.ywl.springboot01.Springboot01Application - Starting Springboot01Application using Java 1.8.0_05 on 你是猪吗 with PID 11236 (D:\IdeaAllProject\springboot01\target\classes started by 听风看月 in D:\IdeaAllProject\springboot01)
+2021-04-05 17:32:49.111 [restartedMain] INFO  com.ywl.springboot01.Springboot01Application - No active profile set, falling back to default profiles: default
+2021-04-05 17:32:49.141 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-05 17:32:49.141 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-05 17:32:49.534 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-05 17:32:49.536 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-05 17:32:49.550 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2021-04-05 17:32:49.918 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-04-05 17:32:49.925 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 17:32:49.925 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-04-05 17:32:49.925 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-05 17:32:49.988 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-04-05 17:32:49.988 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 846 ms
+2021-04-05 17:32:50.026 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-04-05 17:32:50.036 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 17:38:00.510 [restartedMain] INFO  com.ywl.springboot01.Springboot01Application - Starting Springboot01Application using Java 1.8.0_05 on 你是猪吗 with PID 12828 (D:\IdeaAllProject\springboot01\target\classes started by 听风看月 in D:\IdeaAllProject\springboot01)
+2021-04-05 17:38:00.512 [restartedMain] INFO  com.ywl.springboot01.Springboot01Application - No active profile set, falling back to default profiles: default
+2021-04-05 17:38:00.550 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-05 17:38:00.551 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-05 17:38:01.039 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-05 17:38:01.041 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-05 17:38:01.057 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2021-04-05 17:38:01.499 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-04-05 17:38:01.506 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-05 17:38:01.507 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-04-05 17:38:01.507 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-05 17:38:01.573 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-04-05 17:38:01.574 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1023 ms
+2021-04-05 17:38:01.616 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-04-05 17:38:01.626 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 18:15:22.641 [main] INFO  com.ywl.springboot01.Springboot01ApplicationTests - Starting Springboot01ApplicationTests using Java 1.8.0_05 on 你是猪吗 with PID 11032 (started by 听风看月 in D:\IdeaAllProject\springboot01)
+2021-04-05 18:15:22.642 [main] INFO  com.ywl.springboot01.Springboot01ApplicationTests - No active profile set, falling back to default profiles: default
+2021-04-05 18:15:23.213 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-05 18:15:23.216 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-05 18:15:23.232 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2021-04-05 18:15:23.579 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 18:16:27.956 [main] INFO  com.ywl.springboot01.Springboot01ApplicationTests - Starting Springboot01ApplicationTests using Java 1.8.0_05 on 你是猪吗 with PID 12984 (started by 听风看月 in D:\IdeaAllProject\springboot01)
+2021-04-05 18:16:27.958 [main] INFO  com.ywl.springboot01.Springboot01ApplicationTests - No active profile set, falling back to default profiles: default
+2021-04-05 18:16:28.507 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-05 18:16:28.510 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-05 18:16:28.526 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2021-04-05 18:16:28.868 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.

@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 
 @RestController
-public class helloController1 {
+public class helloController2 {
     @RequestMapping("/test")
     public String test() {
         System.out.println("日志打印");
         System.out.println("日志提交git");
-        System.out.println("日志提交git=================");
         return "SUCCESS";
 
     }

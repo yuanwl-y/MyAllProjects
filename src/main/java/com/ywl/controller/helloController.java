@@ -1,6 +1,5 @@
 package com.ywl.controller;
 
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +12,8 @@ public class helloController {
     @RequestMapping("/test")
     public String test() {
         System.out.println("日志打印");
+        System.out.println("日志提交git");
         return "SUCCESS";
+
     }
 }

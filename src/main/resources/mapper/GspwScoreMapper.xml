@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.GspwScoreMapper">
+    <resultMap id="BaseResultMap" type="ywl.dto.GspwScore">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_worknumber" jdbcType="VARCHAR" property="userWorknumber"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="org_name" jdbcType="VARCHAR" property="orgName"/>
+        <result column="org_code" jdbcType="VARCHAR" property="orgCode"/>
+        <result column="build_department_grade" jdbcType="INTEGER" property="buildDepartmentGrade"/>
+        <result column="work_grade" jdbcType="INTEGER" property="workGrade"/>
+        <result column="pay_grade" jdbcType="INTEGER" property="payGrade"/>
+        <result column="material_grade" jdbcType="INTEGER" property="materialGrade"/>
+        <result column="waste_material_grade" jdbcType="INTEGER" property="wasteMaterialGrade"/>
+        <result column="project_safe_grade" jdbcType="INTEGER" property="projectSafeGrade"/>
+        <result column="project_quality_grade" jdbcType="INTEGER" property="projectQualityGrade"/>
+        <result column="project_progress_grade" jdbcType="INTEGER" property="projectProgressGrade"/>
+        <result column="system_application_grade" jdbcType="INTEGER" property="systemApplicationGrade"/>
+        <result column="quantity_grade" jdbcType="INTEGER" property="quantityGrade"/>
+        <result column="finish_grade" jdbcType="INTEGER" property="finishGrade"/>
+        <result column="data_grade" jdbcType="INTEGER" property="dataGrade"/>
+        <result column="company_grade" jdbcType="INTEGER" property="companyGrade"/>
+        <result column="engineer_grade" jdbcType="INTEGER" property="engineerGrade"/>
+        <result column="manager_grade" jdbcType="INTEGER" property="managerGrade"/>
+        <result column="result_grade" jdbcType="INTEGER" property="resultGrade"/>
+        <result column="person_grade" jdbcType="INTEGER" property="personGrade"/>
+        <result column="record_grade" jdbcType="INTEGER" property="recordGrade"/>
+        <result column="project_manager_grade" jdbcType="INTEGER" property="projectManagerGrade"/>
+        <result column="prize_grade" jdbcType="INTEGER" property="prizeGrade"/>
+        <result column="break_rules_grade" jdbcType="INTEGER" property="breakRulesGrade"/>
+        <result column="default_grade" jdbcType="INTEGER" property="defaultGrade"/>
+        <result column="break_promise_grade" jdbcType="INTEGER" property="breakPromiseGrade"/>
+        <result column="release_org_name" jdbcType="VARCHAR" property="releaseOrgName"/>
+        <result column="release_org_code" jdbcType="VARCHAR" property="releaseOrgCode"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, user_worknumber, user_name, org_name, org_code, build_department_grade, work_grade,
+    pay_grade, material_grade, waste_material_grade, project_safe_grade, project_quality_grade, 
+    project_progress_grade, system_application_grade, quantity_grade, finish_grade, data_grade, 
+    company_grade, engineer_grade, manager_grade, result_grade, person_grade, record_grade, 
+    project_manager_grade, prize_grade, break_rules_grade, default_grade, break_promise_grade, 
+    release_org_name, release_org_code
+    </sql>
+    <select id="selectByExample" parameterType="ywl.dto.GspwScoreExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from gspw_score
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gspw_score
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from gspw_score
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="ywl.dto.GspwScoreExample">
+        delete from gspw_score
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="ywl.dto.GspwScore">
+        insert into gspw_score (id, user_worknumber, user_name,
+                                org_name, org_code, build_department_grade,
+                                work_grade, pay_grade, material_grade,
+                                waste_material_grade, project_safe_grade, project_quality_grade,
+                                project_progress_grade, system_application_grade,
+                                quantity_grade, finish_grade, data_grade,
+                                company_grade, engineer_grade, manager_grade,
+                                result_grade, person_grade, record_grade,
+                                project_manager_grade, prize_grade, break_rules_grade,
+                                default_grade, break_promise_grade, release_org_name,
+                                release_org_code)
+        values (#{id,jdbcType=INTEGER}, #{userWorknumber,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
+                #{orgName,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, #{buildDepartmentGrade,jdbcType=INTEGER},
+                #{workGrade,jdbcType=INTEGER}, #{payGrade,jdbcType=INTEGER}, #{materialGrade,jdbcType=INTEGER},
+                #{wasteMaterialGrade,jdbcType=INTEGER}, #{projectSafeGrade,jdbcType=INTEGER},
+                #{projectQualityGrade,jdbcType=INTEGER},
+                #{projectProgressGrade,jdbcType=INTEGER}, #{systemApplicationGrade,jdbcType=INTEGER},
+                #{quantityGrade,jdbcType=INTEGER}, #{finishGrade,jdbcType=INTEGER}, #{dataGrade,jdbcType=INTEGER},
+                #{companyGrade,jdbcType=INTEGER}, #{engineerGrade,jdbcType=INTEGER}, #{managerGrade,jdbcType=INTEGER},
+                #{resultGrade,jdbcType=INTEGER}, #{personGrade,jdbcType=INTEGER}, #{recordGrade,jdbcType=INTEGER},
+                #{projectManagerGrade,jdbcType=INTEGER}, #{prizeGrade,jdbcType=INTEGER},
+                #{breakRulesGrade,jdbcType=INTEGER},
+                #{defaultGrade,jdbcType=INTEGER}, #{breakPromiseGrade,jdbcType=INTEGER},
+                #{releaseOrgName,jdbcType=VARCHAR},
+                #{releaseOrgCode,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="ywl.dto.GspwScore">
+        insert into gspw_score
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userWorknumber != null">
+                user_worknumber,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="orgName != null">
+                org_name,
+            </if>
+            <if test="orgCode != null">
+                org_code,
+            </if>
+            <if test="buildDepartmentGrade != null">
+                build_department_grade,
+            </if>
+            <if test="workGrade != null">
+                work_grade,
+            </if>
+            <if test="payGrade != null">
+                pay_grade,
+            </if>
+            <if test="materialGrade != null">
+                material_grade,
+            </if>
+            <if test="wasteMaterialGrade != null">
+                waste_material_grade,
+            </if>
+            <if test="projectSafeGrade != null">
+                project_safe_grade,
+            </if>
+            <if test="projectQualityGrade != null">
+                project_quality_grade,
+            </if>
+            <if test="projectProgressGrade != null">
+                project_progress_grade,
+            </if>
+            <if test="systemApplicationGrade != null">
+                system_application_grade,
+            </if>
+            <if test="quantityGrade != null">
+                quantity_grade,
+            </if>
+            <if test="finishGrade != null">
+                finish_grade,
+            </if>
+            <if test="dataGrade != null">
+                data_grade,
+            </if>
+            <if test="companyGrade != null">
+                company_grade,
+            </if>
+            <if test="engineerGrade != null">
+                engineer_grade,
+            </if>
+            <if test="managerGrade != null">
+                manager_grade,
+            </if>
+            <if test="resultGrade != null">
+                result_grade,
+            </if>
+            <if test="personGrade != null">
+                person_grade,
+            </if>
+            <if test="recordGrade != null">
+                record_grade,
+            </if>
+            <if test="projectManagerGrade != null">
+                project_manager_grade,
+            </if>
+            <if test="prizeGrade != null">
+                prize_grade,
+            </if>
+            <if test="breakRulesGrade != null">
+                break_rules_grade,
+            </if>
+            <if test="defaultGrade != null">
+                default_grade,
+            </if>
+            <if test="breakPromiseGrade != null">
+                break_promise_grade,
+            </if>
+            <if test="releaseOrgName != null">
+                release_org_name,
+            </if>
+            <if test="releaseOrgCode != null">
+                release_org_code,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userWorknumber != null">
+                #{userWorknumber,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgName != null">
+                #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgCode != null">
+                #{orgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="buildDepartmentGrade != null">
+                #{buildDepartmentGrade,jdbcType=INTEGER},
+            </if>
+            <if test="workGrade != null">
+                #{workGrade,jdbcType=INTEGER},
+            </if>
+            <if test="payGrade != null">
+                #{payGrade,jdbcType=INTEGER},
+            </if>
+            <if test="materialGrade != null">
+                #{materialGrade,jdbcType=INTEGER},
+            </if>
+            <if test="wasteMaterialGrade != null">
+                #{wasteMaterialGrade,jdbcType=INTEGER},
+            </if>
+            <if test="projectSafeGrade != null">
+                #{projectSafeGrade,jdbcType=INTEGER},
+            </if>
+            <if test="projectQualityGrade != null">
+                #{projectQualityGrade,jdbcType=INTEGER},
+            </if>
+            <if test="projectProgressGrade != null">
+                #{projectProgressGrade,jdbcType=INTEGER},
+            </if>
+            <if test="systemApplicationGrade != null">
+                #{systemApplicationGrade,jdbcType=INTEGER},
+            </if>
+            <if test="quantityGrade != null">
+                #{quantityGrade,jdbcType=INTEGER},
+            </if>
+            <if test="finishGrade != null">
+                #{finishGrade,jdbcType=INTEGER},
+            </if>
+            <if test="dataGrade != null">
+                #{dataGrade,jdbcType=INTEGER},
+            </if>
+            <if test="companyGrade != null">
+                #{companyGrade,jdbcType=INTEGER},
+            </if>
+            <if test="engineerGrade != null">
+                #{engineerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="managerGrade != null">
+                #{managerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="resultGrade != null">
+                #{resultGrade,jdbcType=INTEGER},
+            </if>
+            <if test="personGrade != null">
+                #{personGrade,jdbcType=INTEGER},
+            </if>
+            <if test="recordGrade != null">
+                #{recordGrade,jdbcType=INTEGER},
+            </if>
+            <if test="projectManagerGrade != null">
+                #{projectManagerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="prizeGrade != null">
+                #{prizeGrade,jdbcType=INTEGER},
+            </if>
+            <if test="breakRulesGrade != null">
+                #{breakRulesGrade,jdbcType=INTEGER},
+            </if>
+            <if test="defaultGrade != null">
+                #{defaultGrade,jdbcType=INTEGER},
+            </if>
+            <if test="breakPromiseGrade != null">
+                #{breakPromiseGrade,jdbcType=INTEGER},
+            </if>
+            <if test="releaseOrgName != null">
+                #{releaseOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="releaseOrgCode != null">
+                #{releaseOrgCode,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="ywl.dto.GspwScoreExample" resultType="java.lang.Long">
+        select count(*) from gspw_score
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update gspw_score
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.userWorknumber != null">
+                user_worknumber = #{record.userWorknumber,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userName != null">
+                user_name = #{record.userName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orgName != null">
+                org_name = #{record.orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orgCode != null">
+                org_code = #{record.orgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.buildDepartmentGrade != null">
+                build_department_grade = #{record.buildDepartmentGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.workGrade != null">
+                work_grade = #{record.workGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.payGrade != null">
+                pay_grade = #{record.payGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.materialGrade != null">
+                material_grade = #{record.materialGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.wasteMaterialGrade != null">
+                waste_material_grade = #{record.wasteMaterialGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.projectSafeGrade != null">
+                project_safe_grade = #{record.projectSafeGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.projectQualityGrade != null">
+                project_quality_grade = #{record.projectQualityGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.projectProgressGrade != null">
+                project_progress_grade = #{record.projectProgressGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.systemApplicationGrade != null">
+                system_application_grade = #{record.systemApplicationGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.quantityGrade != null">
+                quantity_grade = #{record.quantityGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.finishGrade != null">
+                finish_grade = #{record.finishGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.dataGrade != null">
+                data_grade = #{record.dataGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.companyGrade != null">
+                company_grade = #{record.companyGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.engineerGrade != null">
+                engineer_grade = #{record.engineerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.managerGrade != null">
+                manager_grade = #{record.managerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.resultGrade != null">
+                result_grade = #{record.resultGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.personGrade != null">
+                person_grade = #{record.personGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.recordGrade != null">
+                record_grade = #{record.recordGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.projectManagerGrade != null">
+                project_manager_grade = #{record.projectManagerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.prizeGrade != null">
+                prize_grade = #{record.prizeGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.breakRulesGrade != null">
+                break_rules_grade = #{record.breakRulesGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.defaultGrade != null">
+                default_grade = #{record.defaultGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.breakPromiseGrade != null">
+                break_promise_grade = #{record.breakPromiseGrade,jdbcType=INTEGER},
+            </if>
+            <if test="record.releaseOrgName != null">
+                release_org_name = #{record.releaseOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.releaseOrgCode != null">
+                release_org_code = #{record.releaseOrgCode,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update gspw_score
+        set id = #{record.id,jdbcType=INTEGER},
+        user_worknumber = #{record.userWorknumber,jdbcType=VARCHAR},
+        user_name = #{record.userName,jdbcType=VARCHAR},
+        org_name = #{record.orgName,jdbcType=VARCHAR},
+        org_code = #{record.orgCode,jdbcType=VARCHAR},
+        build_department_grade = #{record.buildDepartmentGrade,jdbcType=INTEGER},
+        work_grade = #{record.workGrade,jdbcType=INTEGER},
+        pay_grade = #{record.payGrade,jdbcType=INTEGER},
+        material_grade = #{record.materialGrade,jdbcType=INTEGER},
+        waste_material_grade = #{record.wasteMaterialGrade,jdbcType=INTEGER},
+        project_safe_grade = #{record.projectSafeGrade,jdbcType=INTEGER},
+        project_quality_grade = #{record.projectQualityGrade,jdbcType=INTEGER},
+        project_progress_grade = #{record.projectProgressGrade,jdbcType=INTEGER},
+        system_application_grade = #{record.systemApplicationGrade,jdbcType=INTEGER},
+        quantity_grade = #{record.quantityGrade,jdbcType=INTEGER},
+        finish_grade = #{record.finishGrade,jdbcType=INTEGER},
+        data_grade = #{record.dataGrade,jdbcType=INTEGER},
+        company_grade = #{record.companyGrade,jdbcType=INTEGER},
+        engineer_grade = #{record.engineerGrade,jdbcType=INTEGER},
+        manager_grade = #{record.managerGrade,jdbcType=INTEGER},
+        result_grade = #{record.resultGrade,jdbcType=INTEGER},
+        person_grade = #{record.personGrade,jdbcType=INTEGER},
+        record_grade = #{record.recordGrade,jdbcType=INTEGER},
+        project_manager_grade = #{record.projectManagerGrade,jdbcType=INTEGER},
+        prize_grade = #{record.prizeGrade,jdbcType=INTEGER},
+        break_rules_grade = #{record.breakRulesGrade,jdbcType=INTEGER},
+        default_grade = #{record.defaultGrade,jdbcType=INTEGER},
+        break_promise_grade = #{record.breakPromiseGrade,jdbcType=INTEGER},
+        release_org_name = #{record.releaseOrgName,jdbcType=VARCHAR},
+        release_org_code = #{record.releaseOrgCode,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="ywl.dto.GspwScore">
+        update gspw_score
+        <set>
+            <if test="userWorknumber != null">
+                user_worknumber = #{userWorknumber,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgName != null">
+                org_name = #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgCode != null">
+                org_code = #{orgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="buildDepartmentGrade != null">
+                build_department_grade = #{buildDepartmentGrade,jdbcType=INTEGER},
+            </if>
+            <if test="workGrade != null">
+                work_grade = #{workGrade,jdbcType=INTEGER},
+            </if>
+            <if test="payGrade != null">
+                pay_grade = #{payGrade,jdbcType=INTEGER},
+            </if>
+            <if test="materialGrade != null">
+                material_grade = #{materialGrade,jdbcType=INTEGER},
+            </if>
+            <if test="wasteMaterialGrade != null">
+                waste_material_grade = #{wasteMaterialGrade,jdbcType=INTEGER},
+            </if>
+            <if test="projectSafeGrade != null">
+                project_safe_grade = #{projectSafeGrade,jdbcType=INTEGER},
+            </if>
+            <if test="projectQualityGrade != null">
+                project_quality_grade = #{projectQualityGrade,jdbcType=INTEGER},
+            </if>
+            <if test="projectProgressGrade != null">
+                project_progress_grade = #{projectProgressGrade,jdbcType=INTEGER},
+            </if>
+            <if test="systemApplicationGrade != null">
+                system_application_grade = #{systemApplicationGrade,jdbcType=INTEGER},
+            </if>
+            <if test="quantityGrade != null">
+                quantity_grade = #{quantityGrade,jdbcType=INTEGER},
+            </if>
+            <if test="finishGrade != null">
+                finish_grade = #{finishGrade,jdbcType=INTEGER},
+            </if>
+            <if test="dataGrade != null">
+                data_grade = #{dataGrade,jdbcType=INTEGER},
+            </if>
+            <if test="companyGrade != null">
+                company_grade = #{companyGrade,jdbcType=INTEGER},
+            </if>
+            <if test="engineerGrade != null">
+                engineer_grade = #{engineerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="managerGrade != null">
+                manager_grade = #{managerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="resultGrade != null">
+                result_grade = #{resultGrade,jdbcType=INTEGER},
+            </if>
+            <if test="personGrade != null">
+                person_grade = #{personGrade,jdbcType=INTEGER},
+            </if>
+            <if test="recordGrade != null">
+                record_grade = #{recordGrade,jdbcType=INTEGER},
+            </if>
+            <if test="projectManagerGrade != null">
+                project_manager_grade = #{projectManagerGrade,jdbcType=INTEGER},
+            </if>
+            <if test="prizeGrade != null">
+                prize_grade = #{prizeGrade,jdbcType=INTEGER},
+            </if>
+            <if test="breakRulesGrade != null">
+                break_rules_grade = #{breakRulesGrade,jdbcType=INTEGER},
+            </if>
+            <if test="defaultGrade != null">
+                default_grade = #{defaultGrade,jdbcType=INTEGER},
+            </if>
+            <if test="breakPromiseGrade != null">
+                break_promise_grade = #{breakPromiseGrade,jdbcType=INTEGER},
+            </if>
+            <if test="releaseOrgName != null">
+                release_org_name = #{releaseOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="releaseOrgCode != null">
+                release_org_code = #{releaseOrgCode,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="ywl.dto.GspwScore">
+        update gspw_score
+        set user_worknumber          = #{userWorknumber,jdbcType=VARCHAR},
+            user_name                = #{userName,jdbcType=VARCHAR},
+            org_name                 = #{orgName,jdbcType=VARCHAR},
+            org_code                 = #{orgCode,jdbcType=VARCHAR},
+            build_department_grade   = #{buildDepartmentGrade,jdbcType=INTEGER},
+            work_grade               = #{workGrade,jdbcType=INTEGER},
+            pay_grade                = #{payGrade,jdbcType=INTEGER},
+            material_grade           = #{materialGrade,jdbcType=INTEGER},
+            waste_material_grade     = #{wasteMaterialGrade,jdbcType=INTEGER},
+            project_safe_grade       = #{projectSafeGrade,jdbcType=INTEGER},
+            project_quality_grade    = #{projectQualityGrade,jdbcType=INTEGER},
+            project_progress_grade   = #{projectProgressGrade,jdbcType=INTEGER},
+            system_application_grade = #{systemApplicationGrade,jdbcType=INTEGER},
+            quantity_grade           = #{quantityGrade,jdbcType=INTEGER},
+            finish_grade             = #{finishGrade,jdbcType=INTEGER},
+            data_grade               = #{dataGrade,jdbcType=INTEGER},
+            company_grade            = #{companyGrade,jdbcType=INTEGER},
+            engineer_grade           = #{engineerGrade,jdbcType=INTEGER},
+            manager_grade            = #{managerGrade,jdbcType=INTEGER},
+            result_grade             = #{resultGrade,jdbcType=INTEGER},
+            person_grade             = #{personGrade,jdbcType=INTEGER},
+            record_grade             = #{recordGrade,jdbcType=INTEGER},
+            project_manager_grade    = #{projectManagerGrade,jdbcType=INTEGER},
+            prize_grade              = #{prizeGrade,jdbcType=INTEGER},
+            break_rules_grade        = #{breakRulesGrade,jdbcType=INTEGER},
+            default_grade            = #{defaultGrade,jdbcType=INTEGER},
+            break_promise_grade      = #{breakPromiseGrade,jdbcType=INTEGER},
+            release_org_name         = #{releaseOrgName,jdbcType=VARCHAR},
+            release_org_code         = #{releaseOrgCode,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

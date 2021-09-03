@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.GspwPreparationMapper">
+    <resultMap id="BaseResultMap" type="ywl.dto.GspwPreparation">
+        <id column="preparation_id" jdbcType="INTEGER" property="preparationId"/>
+        <result column="preparation_constructionPlan_id" jdbcType="INTEGER" property="preparationConstructionplanId"/>
+        <result column="preparation_jiaodi" jdbcType="VARCHAR" property="preparationJiaodi"/>
+        <result column="preparation_lantu" jdbcType="VARCHAR" property="preparationLantu"/>
+        <result column="preparation_piao" jdbcType="VARCHAR" property="preparationPiao"/>
+        <result column="preparation_jiedi" jdbcType="VARCHAR" property="preparationJiedi"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        preparation_id, preparation_constructionPlan_id, preparation_jiaodi, preparation_lantu,
+    preparation_piao, preparation_jiedi
+    </sql>
+    <select id="selectByExample" parameterType="ywl.dto.GspwPreparationExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from gspw_preparation
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gspw_preparation
+        where preparation_id = #{preparationId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from gspw_preparation
+        where preparation_id = #{preparationId,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="ywl.dto.GspwPreparationExample">
+        delete from gspw_preparation
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="ywl.dto.GspwPreparation">
+        insert into gspw_preparation (preparation_id, preparation_constructionPlan_id,
+                                      preparation_jiaodi, preparation_lantu, preparation_piao,
+                                      preparation_jiedi)
+        values (#{preparationId,jdbcType=INTEGER}, #{preparationConstructionplanId,jdbcType=INTEGER},
+                #{preparationJiaodi,jdbcType=VARCHAR}, #{preparationLantu,jdbcType=VARCHAR},
+                #{preparationPiao,jdbcType=VARCHAR},
+                #{preparationJiedi,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="ywl.dto.GspwPreparation">
+        insert into gspw_preparation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="preparationId != null">
+                preparation_id,
+            </if>
+            <if test="preparationConstructionplanId != null">
+                preparation_constructionPlan_id,
+            </if>
+            <if test="preparationJiaodi != null">
+                preparation_jiaodi,
+            </if>
+            <if test="preparationLantu != null">
+                preparation_lantu,
+            </if>
+            <if test="preparationPiao != null">
+                preparation_piao,
+            </if>
+            <if test="preparationJiedi != null">
+                preparation_jiedi,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="preparationId != null">
+                #{preparationId,jdbcType=INTEGER},
+            </if>
+            <if test="preparationConstructionplanId != null">
+                #{preparationConstructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="preparationJiaodi != null">
+                #{preparationJiaodi,jdbcType=VARCHAR},
+            </if>
+            <if test="preparationLantu != null">
+                #{preparationLantu,jdbcType=VARCHAR},
+            </if>
+            <if test="preparationPiao != null">
+                #{preparationPiao,jdbcType=VARCHAR},
+            </if>
+            <if test="preparationJiedi != null">
+                #{preparationJiedi,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="ywl.dto.GspwPreparationExample" resultType="java.lang.Long">
+        select count(*) from gspw_preparation
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update gspw_preparation
+        <set>
+            <if test="record.preparationId != null">
+                preparation_id = #{record.preparationId,jdbcType=INTEGER},
+            </if>
+            <if test="record.preparationConstructionplanId != null">
+                preparation_constructionPlan_id = #{record.preparationConstructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="record.preparationJiaodi != null">
+                preparation_jiaodi = #{record.preparationJiaodi,jdbcType=VARCHAR},
+            </if>
+            <if test="record.preparationLantu != null">
+                preparation_lantu = #{record.preparationLantu,jdbcType=VARCHAR},
+            </if>
+            <if test="record.preparationPiao != null">
+                preparation_piao = #{record.preparationPiao,jdbcType=VARCHAR},
+            </if>
+            <if test="record.preparationJiedi != null">
+                preparation_jiedi = #{record.preparationJiedi,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update gspw_preparation
+        set preparation_id = #{record.preparationId,jdbcType=INTEGER},
+        preparation_constructionPlan_id = #{record.preparationConstructionplanId,jdbcType=INTEGER},
+        preparation_jiaodi = #{record.preparationJiaodi,jdbcType=VARCHAR},
+        preparation_lantu = #{record.preparationLantu,jdbcType=VARCHAR},
+        preparation_piao = #{record.preparationPiao,jdbcType=VARCHAR},
+        preparation_jiedi = #{record.preparationJiedi,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="ywl.dto.GspwPreparation">
+        update gspw_preparation
+        <set>
+            <if test="preparationConstructionplanId != null">
+                preparation_constructionPlan_id = #{preparationConstructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="preparationJiaodi != null">
+                preparation_jiaodi = #{preparationJiaodi,jdbcType=VARCHAR},
+            </if>
+            <if test="preparationLantu != null">
+                preparation_lantu = #{preparationLantu,jdbcType=VARCHAR},
+            </if>
+            <if test="preparationPiao != null">
+                preparation_piao = #{preparationPiao,jdbcType=VARCHAR},
+            </if>
+            <if test="preparationJiedi != null">
+                preparation_jiedi = #{preparationJiedi,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where preparation_id = #{preparationId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="ywl.dto.GspwPreparation">
+        update gspw_preparation
+        set preparation_constructionPlan_id = #{preparationConstructionplanId,jdbcType=INTEGER},
+            preparation_jiaodi              = #{preparationJiaodi,jdbcType=VARCHAR},
+            preparation_lantu               = #{preparationLantu,jdbcType=VARCHAR},
+            preparation_piao                = #{preparationPiao,jdbcType=VARCHAR},
+            preparation_jiedi               = #{preparationJiedi,jdbcType=VARCHAR}
+        where preparation_id = #{preparationId,jdbcType=INTEGER}
+    </update>
+</mapper>

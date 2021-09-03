@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.GspwPackprojectMapper">
+    <resultMap id="BaseResultMap" type="ywl.dto.GspwPackproject">
+        <id column="packProject_id" jdbcType="INTEGER" property="packprojectId"/>
+        <result column="packProject_name" jdbcType="VARCHAR" property="packprojectName"/>
+        <result column="packProject_wbs" jdbcType="VARCHAR" property="packprojectWbs"/>
+        <result column="packProject_number" jdbcType="VARCHAR" property="packprojectNumber"/>
+        <result column="integratedProject_id" jdbcType="INTEGER" property="integratedprojectId"/>
+        <result column="packProject_org" jdbcType="VARCHAR" property="packprojectOrg"/>
+        <result column="packProject_orgCode" jdbcType="VARCHAR" property="packprojectOrgcode"/>
+        <result column="deleteMark" jdbcType="INTEGER" property="deletemark"/>
+        <result column="time" jdbcType="TIMESTAMP" property="time"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        packProject_id, packProject_name, packProject_wbs, packProject_number, integratedProject_id,
+    packProject_org, packProject_orgCode, deleteMark, time
+    </sql>
+    <select id="selectByExample" parameterType="ywl.dto.GspwPackprojectExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from gspw_packproject
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gspw_packproject
+        where packProject_id = #{packprojectId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from gspw_packproject
+        where packProject_id = #{packprojectId,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="ywl.dto.GspwPackprojectExample">
+        delete from gspw_packproject
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="ywl.dto.GspwPackproject">
+        insert into gspw_packproject (packProject_id, packProject_name, packProject_wbs,
+                                      packProject_number, integratedProject_id,
+                                      packProject_org, packProject_orgCode, deleteMark,
+                                      time)
+        values (#{packprojectId,jdbcType=INTEGER}, #{packprojectName,jdbcType=VARCHAR},
+                #{packprojectWbs,jdbcType=VARCHAR},
+                #{packprojectNumber,jdbcType=VARCHAR}, #{integratedprojectId,jdbcType=INTEGER},
+                #{packprojectOrg,jdbcType=VARCHAR}, #{packprojectOrgcode,jdbcType=VARCHAR},
+                #{deletemark,jdbcType=INTEGER},
+                #{time,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="ywl.dto.GspwPackproject">
+        insert into gspw_packproject
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="packprojectId != null">
+                packProject_id,
+            </if>
+            <if test="packprojectName != null">
+                packProject_name,
+            </if>
+            <if test="packprojectWbs != null">
+                packProject_wbs,
+            </if>
+            <if test="packprojectNumber != null">
+                packProject_number,
+            </if>
+            <if test="integratedprojectId != null">
+                integratedProject_id,
+            </if>
+            <if test="packprojectOrg != null">
+                packProject_org,
+            </if>
+            <if test="packprojectOrgcode != null">
+                packProject_orgCode,
+            </if>
+            <if test="deletemark != null">
+                deleteMark,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="packprojectId != null">
+                #{packprojectId,jdbcType=INTEGER},
+            </if>
+            <if test="packprojectName != null">
+                #{packprojectName,jdbcType=VARCHAR},
+            </if>
+            <if test="packprojectWbs != null">
+                #{packprojectWbs,jdbcType=VARCHAR},
+            </if>
+            <if test="packprojectNumber != null">
+                #{packprojectNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="integratedprojectId != null">
+                #{integratedprojectId,jdbcType=INTEGER},
+            </if>
+            <if test="packprojectOrg != null">
+                #{packprojectOrg,jdbcType=VARCHAR},
+            </if>
+            <if test="packprojectOrgcode != null">
+                #{packprojectOrgcode,jdbcType=VARCHAR},
+            </if>
+            <if test="deletemark != null">
+                #{deletemark,jdbcType=INTEGER},
+            </if>
+            <if test="time != null">
+                #{time,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="ywl.dto.GspwPackprojectExample" resultType="java.lang.Long">
+        select count(*) from gspw_packproject
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update gspw_packproject
+        <set>
+            <if test="record.packprojectId != null">
+                packProject_id = #{record.packprojectId,jdbcType=INTEGER},
+            </if>
+            <if test="record.packprojectName != null">
+                packProject_name = #{record.packprojectName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.packprojectWbs != null">
+                packProject_wbs = #{record.packprojectWbs,jdbcType=VARCHAR},
+            </if>
+            <if test="record.packprojectNumber != null">
+                packProject_number = #{record.packprojectNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="record.integratedprojectId != null">
+                integratedProject_id = #{record.integratedprojectId,jdbcType=INTEGER},
+            </if>
+            <if test="record.packprojectOrg != null">
+                packProject_org = #{record.packprojectOrg,jdbcType=VARCHAR},
+            </if>
+            <if test="record.packprojectOrgcode != null">
+                packProject_orgCode = #{record.packprojectOrgcode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deletemark != null">
+                deleteMark = #{record.deletemark,jdbcType=INTEGER},
+            </if>
+            <if test="record.time != null">
+                time = #{record.time,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update gspw_packproject
+        set packProject_id = #{record.packprojectId,jdbcType=INTEGER},
+        packProject_name = #{record.packprojectName,jdbcType=VARCHAR},
+        packProject_wbs = #{record.packprojectWbs,jdbcType=VARCHAR},
+        packProject_number = #{record.packprojectNumber,jdbcType=VARCHAR},
+        integratedProject_id = #{record.integratedprojectId,jdbcType=INTEGER},
+        packProject_org = #{record.packprojectOrg,jdbcType=VARCHAR},
+        packProject_orgCode = #{record.packprojectOrgcode,jdbcType=VARCHAR},
+        deleteMark = #{record.deletemark,jdbcType=INTEGER},
+        time = #{record.time,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="ywl.dto.GspwPackproject">
+        update gspw_packproject
+        <set>
+            <if test="packprojectName != null">
+                packProject_name = #{packprojectName,jdbcType=VARCHAR},
+            </if>
+            <if test="packprojectWbs != null">
+                packProject_wbs = #{packprojectWbs,jdbcType=VARCHAR},
+            </if>
+            <if test="packprojectNumber != null">
+                packProject_number = #{packprojectNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="integratedprojectId != null">
+                integratedProject_id = #{integratedprojectId,jdbcType=INTEGER},
+            </if>
+            <if test="packprojectOrg != null">
+                packProject_org = #{packprojectOrg,jdbcType=VARCHAR},
+            </if>
+            <if test="packprojectOrgcode != null">
+                packProject_orgCode = #{packprojectOrgcode,jdbcType=VARCHAR},
+            </if>
+            <if test="deletemark != null">
+                deleteMark = #{deletemark,jdbcType=INTEGER},
+            </if>
+            <if test="time != null">
+                time = #{time,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where packProject_id = #{packprojectId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="ywl.dto.GspwPackproject">
+        update gspw_packproject
+        set packProject_name     = #{packprojectName,jdbcType=VARCHAR},
+            packProject_wbs      = #{packprojectWbs,jdbcType=VARCHAR},
+            packProject_number   = #{packprojectNumber,jdbcType=VARCHAR},
+            integratedProject_id = #{integratedprojectId,jdbcType=INTEGER},
+            packProject_org      = #{packprojectOrg,jdbcType=VARCHAR},
+            packProject_orgCode  = #{packprojectOrgcode,jdbcType=VARCHAR},
+            deleteMark           = #{deletemark,jdbcType=INTEGER},
+            time                 = #{time,jdbcType=TIMESTAMP}
+        where packProject_id = #{packprojectId,jdbcType=INTEGER}
+    </update>
+</mapper>

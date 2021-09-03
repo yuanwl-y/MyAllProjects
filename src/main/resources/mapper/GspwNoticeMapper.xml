@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.GspwNoticeMapper">
+    <resultMap id="BaseResultMap" type="ywl.dto.GspwNotice">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="file_path" jdbcType="VARCHAR" property="filePath"/>
+        <result column="is_case" jdbcType="INTEGER" property="isCase"/>
+        <result column="user_org" jdbcType="VARCHAR" property="userOrg"/>
+        <result column="user_org_code" jdbcType="VARCHAR" property="userOrgCode"/>
+        <result column="user_workcode" jdbcType="VARCHAR" property="userWorkcode"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="file_name" jdbcType="VARCHAR" property="fileName"/>
+        <result column="deletemark" jdbcType="INTEGER" property="deletemark"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, file_path, is_case, user_org, user_org_code, user_workcode, user_name, file_name,
+    deletemark
+    </sql>
+    <select id="selectByExample" parameterType="ywl.dto.GspwNoticeExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from gspw_notice
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gspw_notice
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from gspw_notice
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="ywl.dto.GspwNoticeExample">
+        delete from gspw_notice
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="ywl.dto.GspwNotice">
+        insert into gspw_notice (id, file_path, is_case,
+                                 user_org, user_org_code, user_workcode,
+                                 user_name, file_name, deletemark)
+        values (#{id,jdbcType=INTEGER}, #{filePath,jdbcType=VARCHAR}, #{isCase,jdbcType=INTEGER},
+                #{userOrg,jdbcType=VARCHAR}, #{userOrgCode,jdbcType=VARCHAR}, #{userWorkcode,jdbcType=VARCHAR},
+                #{userName,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, #{deletemark,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="ywl.dto.GspwNotice">
+        insert into gspw_notice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="filePath != null">
+                file_path,
+            </if>
+            <if test="isCase != null">
+                is_case,
+            </if>
+            <if test="userOrg != null">
+                user_org,
+            </if>
+            <if test="userOrgCode != null">
+                user_org_code,
+            </if>
+            <if test="userWorkcode != null">
+                user_workcode,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="fileName != null">
+                file_name,
+            </if>
+            <if test="deletemark != null">
+                deletemark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="filePath != null">
+                #{filePath,jdbcType=VARCHAR},
+            </if>
+            <if test="isCase != null">
+                #{isCase,jdbcType=INTEGER},
+            </if>
+            <if test="userOrg != null">
+                #{userOrg,jdbcType=VARCHAR},
+            </if>
+            <if test="userOrgCode != null">
+                #{userOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="userWorkcode != null">
+                #{userWorkcode,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="fileName != null">
+                #{fileName,jdbcType=VARCHAR},
+            </if>
+            <if test="deletemark != null">
+                #{deletemark,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="ywl.dto.GspwNoticeExample" resultType="java.lang.Long">
+        select count(*) from gspw_notice
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update gspw_notice
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.filePath != null">
+                file_path = #{record.filePath,jdbcType=VARCHAR},
+            </if>
+            <if test="record.isCase != null">
+                is_case = #{record.isCase,jdbcType=INTEGER},
+            </if>
+            <if test="record.userOrg != null">
+                user_org = #{record.userOrg,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userOrgCode != null">
+                user_org_code = #{record.userOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userWorkcode != null">
+                user_workcode = #{record.userWorkcode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userName != null">
+                user_name = #{record.userName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.fileName != null">
+                file_name = #{record.fileName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deletemark != null">
+                deletemark = #{record.deletemark,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update gspw_notice
+        set id = #{record.id,jdbcType=INTEGER},
+        file_path = #{record.filePath,jdbcType=VARCHAR},
+        is_case = #{record.isCase,jdbcType=INTEGER},
+        user_org = #{record.userOrg,jdbcType=VARCHAR},
+        user_org_code = #{record.userOrgCode,jdbcType=VARCHAR},
+        user_workcode = #{record.userWorkcode,jdbcType=VARCHAR},
+        user_name = #{record.userName,jdbcType=VARCHAR},
+        file_name = #{record.fileName,jdbcType=VARCHAR},
+        deletemark = #{record.deletemark,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="ywl.dto.GspwNotice">
+        update gspw_notice
+        <set>
+            <if test="filePath != null">
+                file_path = #{filePath,jdbcType=VARCHAR},
+            </if>
+            <if test="isCase != null">
+                is_case = #{isCase,jdbcType=INTEGER},
+            </if>
+            <if test="userOrg != null">
+                user_org = #{userOrg,jdbcType=VARCHAR},
+            </if>
+            <if test="userOrgCode != null">
+                user_org_code = #{userOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="userWorkcode != null">
+                user_workcode = #{userWorkcode,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="fileName != null">
+                file_name = #{fileName,jdbcType=VARCHAR},
+            </if>
+            <if test="deletemark != null">
+                deletemark = #{deletemark,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="ywl.dto.GspwNotice">
+        update gspw_notice
+        set file_path     = #{filePath,jdbcType=VARCHAR},
+            is_case       = #{isCase,jdbcType=INTEGER},
+            user_org      = #{userOrg,jdbcType=VARCHAR},
+            user_org_code = #{userOrgCode,jdbcType=VARCHAR},
+            user_workcode = #{userWorkcode,jdbcType=VARCHAR},
+            user_name     = #{userName,jdbcType=VARCHAR},
+            file_name     = #{fileName,jdbcType=VARCHAR},
+            deletemark    = #{deletemark,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

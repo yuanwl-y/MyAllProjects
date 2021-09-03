@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.GspwPlanchangeContentMapper">
+    <resultMap id="BaseResultMap" type="ywl.dto.GspwPlanchangeContent">
+        <id column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="constructionplan_id" jdbcType="INTEGER" property="constructionplanId"/>
+        <result column="planchange_type" jdbcType="INTEGER" property="planchangeType"/>
+        <result column="planchange_content" jdbcType="VARCHAR" property="planchangeContent"/>
+        <result column="last_content" jdbcType="VARCHAR" property="lastContent"/>
+        <result column="reason" jdbcType="VARCHAR" property="reason"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="deleteMark" jdbcType="INTEGER" property="deletemark"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        uuid, constructionplan_id, planchange_type, planchange_content, last_content, reason,
+    create_date, deleteMark
+    </sql>
+    <select id="selectByExample" parameterType="ywl.dto.GspwPlanchangeContentExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from gspw_planchange_content
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gspw_planchange_content
+        where uuid = #{uuid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from gspw_planchange_content
+        where uuid = #{uuid,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteByExample" parameterType="ywl.dto.GspwPlanchangeContentExample">
+        delete from gspw_planchange_content
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="ywl.dto.GspwPlanchangeContent">
+        insert into gspw_planchange_content (uuid, constructionplan_id, planchange_type,
+                                             planchange_content, last_content, reason,
+                                             create_date, deleteMark)
+        values (#{uuid,jdbcType=VARCHAR}, #{constructionplanId,jdbcType=INTEGER}, #{planchangeType,jdbcType=INTEGER},
+                #{planchangeContent,jdbcType=VARCHAR}, #{lastContent,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR},
+                #{createDate,jdbcType=TIMESTAMP}, #{deletemark,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="ywl.dto.GspwPlanchangeContent">
+        insert into gspw_planchange_content
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                uuid,
+            </if>
+            <if test="constructionplanId != null">
+                constructionplan_id,
+            </if>
+            <if test="planchangeType != null">
+                planchange_type,
+            </if>
+            <if test="planchangeContent != null">
+                planchange_content,
+            </if>
+            <if test="lastContent != null">
+                last_content,
+            </if>
+            <if test="reason != null">
+                reason,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="deletemark != null">
+                deleteMark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                #{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="constructionplanId != null">
+                #{constructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="planchangeType != null">
+                #{planchangeType,jdbcType=INTEGER},
+            </if>
+            <if test="planchangeContent != null">
+                #{planchangeContent,jdbcType=VARCHAR},
+            </if>
+            <if test="lastContent != null">
+                #{lastContent,jdbcType=VARCHAR},
+            </if>
+            <if test="reason != null">
+                #{reason,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deletemark != null">
+                #{deletemark,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="ywl.dto.GspwPlanchangeContentExample" resultType="java.lang.Long">
+        select count(*) from gspw_planchange_content
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update gspw_planchange_content
+        <set>
+            <if test="record.uuid != null">
+                uuid = #{record.uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.constructionplanId != null">
+                constructionplan_id = #{record.constructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="record.planchangeType != null">
+                planchange_type = #{record.planchangeType,jdbcType=INTEGER},
+            </if>
+            <if test="record.planchangeContent != null">
+                planchange_content = #{record.planchangeContent,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lastContent != null">
+                last_content = #{record.lastContent,jdbcType=VARCHAR},
+            </if>
+            <if test="record.reason != null">
+                reason = #{record.reason,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createDate != null">
+                create_date = #{record.createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.deletemark != null">
+                deleteMark = #{record.deletemark,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update gspw_planchange_content
+        set uuid = #{record.uuid,jdbcType=VARCHAR},
+        constructionplan_id = #{record.constructionplanId,jdbcType=INTEGER},
+        planchange_type = #{record.planchangeType,jdbcType=INTEGER},
+        planchange_content = #{record.planchangeContent,jdbcType=VARCHAR},
+        last_content = #{record.lastContent,jdbcType=VARCHAR},
+        reason = #{record.reason,jdbcType=VARCHAR},
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+        deleteMark = #{record.deletemark,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="ywl.dto.GspwPlanchangeContent">
+        update gspw_planchange_content
+        <set>
+            <if test="constructionplanId != null">
+                constructionplan_id = #{constructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="planchangeType != null">
+                planchange_type = #{planchangeType,jdbcType=INTEGER},
+            </if>
+            <if test="planchangeContent != null">
+                planchange_content = #{planchangeContent,jdbcType=VARCHAR},
+            </if>
+            <if test="lastContent != null">
+                last_content = #{lastContent,jdbcType=VARCHAR},
+            </if>
+            <if test="reason != null">
+                reason = #{reason,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deletemark != null">
+                deleteMark = #{deletemark,jdbcType=INTEGER},
+            </if>
+        </set>
+        where uuid = #{uuid,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="ywl.dto.GspwPlanchangeContent">
+        update gspw_planchange_content
+        set constructionplan_id = #{constructionplanId,jdbcType=INTEGER},
+            planchange_type     = #{planchangeType,jdbcType=INTEGER},
+            planchange_content  = #{planchangeContent,jdbcType=VARCHAR},
+            last_content        = #{lastContent,jdbcType=VARCHAR},
+            reason              = #{reason,jdbcType=VARCHAR},
+            create_date         = #{createDate,jdbcType=TIMESTAMP},
+            deleteMark          = #{deletemark,jdbcType=INTEGER}
+        where uuid = #{uuid,jdbcType=VARCHAR}
+    </update>
+</mapper>

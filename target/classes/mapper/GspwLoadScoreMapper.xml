@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwLoadScoreMapper">
+  <resultMap id="BaseResultMap" type="com.ywl.dto.GspwLoadScore">
+    <id column="score_id" jdbcType="INTEGER" property="scoreId" />
+    <result column="score_project_name" jdbcType="VARCHAR" property="scoreProjectName" />
+    <result column="score_project_id" jdbcType="INTEGER" property="scoreProjectId" />
+    <result column="score_contractor" jdbcType="VARCHAR" property="scoreContractor" />
+    <result column="score_contractor_code" jdbcType="VARCHAR" property="scoreContractorCode" />
+    <result column="score_owner_grade" jdbcType="INTEGER" property="scoreOwnerGrade" />
+    <result column="score_city_grade" jdbcType="INTEGER" property="scoreCityGrade" />
+    <result column="score_dept_name" jdbcType="VARCHAR" property="scoreDeptName" />
+    <result column="score_dept_code" jdbcType="VARCHAR" property="scoreDeptCode" />
+    <result column="score_group" jdbcType="VARCHAR" property="scoreGroup" />
+    <result column="score_group_code" jdbcType="VARCHAR" property="scoreGroupCode" />
+    <result column="score_total" jdbcType="VARCHAR" property="scoreTotal" />
+    <result column="score_time" jdbcType="VARCHAR" property="scoreTime" />
+    <result column="score_state" jdbcType="INTEGER" property="scoreState" />
+    <result column="score_orgcode" jdbcType="VARCHAR" property="scoreOrgcode" />
+    <result column="score_orgcitycode" jdbcType="VARCHAR" property="scoreOrgcitycode" />
+    <result column="delete_mark" jdbcType="VARCHAR" property="deleteMark" />
+    <result column="select_state" jdbcType="INTEGER" property="selectState" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    score_id, score_project_name, score_project_id, score_contractor, score_contractor_code, 
+    score_owner_grade, score_city_grade, score_dept_name, score_dept_code, score_group, 
+    score_group_code, score_total, score_time, score_state, score_orgcode, score_orgcitycode, 
+    delete_mark, select_state
+  </sql>
+  <select id="selectByExample" parameterType="com.ywl.dto.GspwLoadScoreExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gspw_load_score
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gspw_load_score
+    where score_id = #{scoreId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gspw_load_score
+    where score_id = #{scoreId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ywl.dto.GspwLoadScoreExample">
+    delete from gspw_load_score
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ywl.dto.GspwLoadScore">
+    insert into gspw_load_score (score_id, score_project_name, score_project_id, 
+      score_contractor, score_contractor_code, score_owner_grade, 
+      score_city_grade, score_dept_name, score_dept_code, 
+      score_group, score_group_code, score_total, 
+      score_time, score_state, score_orgcode, 
+      score_orgcitycode, delete_mark, select_state
+      )
+    values (#{scoreId,jdbcType=INTEGER}, #{scoreProjectName,jdbcType=VARCHAR}, #{scoreProjectId,jdbcType=INTEGER}, 
+      #{scoreContractor,jdbcType=VARCHAR}, #{scoreContractorCode,jdbcType=VARCHAR}, #{scoreOwnerGrade,jdbcType=INTEGER}, 
+      #{scoreCityGrade,jdbcType=INTEGER}, #{scoreDeptName,jdbcType=VARCHAR}, #{scoreDeptCode,jdbcType=VARCHAR}, 
+      #{scoreGroup,jdbcType=VARCHAR}, #{scoreGroupCode,jdbcType=VARCHAR}, #{scoreTotal,jdbcType=VARCHAR}, 
+      #{scoreTime,jdbcType=VARCHAR}, #{scoreState,jdbcType=INTEGER}, #{scoreOrgcode,jdbcType=VARCHAR}, 
+      #{scoreOrgcitycode,jdbcType=VARCHAR}, #{deleteMark,jdbcType=VARCHAR}, #{selectState,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywl.dto.GspwLoadScore">
+    insert into gspw_load_score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scoreId != null">
+        score_id,
+      </if>
+      <if test="scoreProjectName != null">
+        score_project_name,
+      </if>
+      <if test="scoreProjectId != null">
+        score_project_id,
+      </if>
+      <if test="scoreContractor != null">
+        score_contractor,
+      </if>
+      <if test="scoreContractorCode != null">
+        score_contractor_code,
+      </if>
+      <if test="scoreOwnerGrade != null">
+        score_owner_grade,
+      </if>
+      <if test="scoreCityGrade != null">
+        score_city_grade,
+      </if>
+      <if test="scoreDeptName != null">
+        score_dept_name,
+      </if>
+      <if test="scoreDeptCode != null">
+        score_dept_code,
+      </if>
+      <if test="scoreGroup != null">
+        score_group,
+      </if>
+      <if test="scoreGroupCode != null">
+        score_group_code,
+      </if>
+      <if test="scoreTotal != null">
+        score_total,
+      </if>
+      <if test="scoreTime != null">
+        score_time,
+      </if>
+      <if test="scoreState != null">
+        score_state,
+      </if>
+      <if test="scoreOrgcode != null">
+        score_orgcode,
+      </if>
+      <if test="scoreOrgcitycode != null">
+        score_orgcitycode,
+      </if>
+      <if test="deleteMark != null">
+        delete_mark,
+      </if>
+      <if test="selectState != null">
+        select_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scoreId != null">
+        #{scoreId,jdbcType=INTEGER},
+      </if>
+      <if test="scoreProjectName != null">
+        #{scoreProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreProjectId != null">
+        #{scoreProjectId,jdbcType=INTEGER},
+      </if>
+      <if test="scoreContractor != null">
+        #{scoreContractor,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreContractorCode != null">
+        #{scoreContractorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreOwnerGrade != null">
+        #{scoreOwnerGrade,jdbcType=INTEGER},
+      </if>
+      <if test="scoreCityGrade != null">
+        #{scoreCityGrade,jdbcType=INTEGER},
+      </if>
+      <if test="scoreDeptName != null">
+        #{scoreDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreDeptCode != null">
+        #{scoreDeptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreGroup != null">
+        #{scoreGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreGroupCode != null">
+        #{scoreGroupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreTotal != null">
+        #{scoreTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreTime != null">
+        #{scoreTime,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreState != null">
+        #{scoreState,jdbcType=INTEGER},
+      </if>
+      <if test="scoreOrgcode != null">
+        #{scoreOrgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreOrgcitycode != null">
+        #{scoreOrgcitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteMark != null">
+        #{deleteMark,jdbcType=VARCHAR},
+      </if>
+      <if test="selectState != null">
+        #{selectState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ywl.dto.GspwLoadScoreExample" resultType="java.lang.Long">
+    select count(*) from gspw_load_score
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update gspw_load_score
+    <set>
+      <if test="record.scoreId != null">
+        score_id = #{record.scoreId,jdbcType=INTEGER},
+      </if>
+      <if test="record.scoreProjectName != null">
+        score_project_name = #{record.scoreProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreProjectId != null">
+        score_project_id = #{record.scoreProjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.scoreContractor != null">
+        score_contractor = #{record.scoreContractor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreContractorCode != null">
+        score_contractor_code = #{record.scoreContractorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreOwnerGrade != null">
+        score_owner_grade = #{record.scoreOwnerGrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.scoreCityGrade != null">
+        score_city_grade = #{record.scoreCityGrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.scoreDeptName != null">
+        score_dept_name = #{record.scoreDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreDeptCode != null">
+        score_dept_code = #{record.scoreDeptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreGroup != null">
+        score_group = #{record.scoreGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreGroupCode != null">
+        score_group_code = #{record.scoreGroupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreTotal != null">
+        score_total = #{record.scoreTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreTime != null">
+        score_time = #{record.scoreTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreState != null">
+        score_state = #{record.scoreState,jdbcType=INTEGER},
+      </if>
+      <if test="record.scoreOrgcode != null">
+        score_orgcode = #{record.scoreOrgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreOrgcitycode != null">
+        score_orgcitycode = #{record.scoreOrgcitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteMark != null">
+        delete_mark = #{record.deleteMark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selectState != null">
+        select_state = #{record.selectState,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update gspw_load_score
+    set score_id = #{record.scoreId,jdbcType=INTEGER},
+      score_project_name = #{record.scoreProjectName,jdbcType=VARCHAR},
+      score_project_id = #{record.scoreProjectId,jdbcType=INTEGER},
+      score_contractor = #{record.scoreContractor,jdbcType=VARCHAR},
+      score_contractor_code = #{record.scoreContractorCode,jdbcType=VARCHAR},
+      score_owner_grade = #{record.scoreOwnerGrade,jdbcType=INTEGER},
+      score_city_grade = #{record.scoreCityGrade,jdbcType=INTEGER},
+      score_dept_name = #{record.scoreDeptName,jdbcType=VARCHAR},
+      score_dept_code = #{record.scoreDeptCode,jdbcType=VARCHAR},
+      score_group = #{record.scoreGroup,jdbcType=VARCHAR},
+      score_group_code = #{record.scoreGroupCode,jdbcType=VARCHAR},
+      score_total = #{record.scoreTotal,jdbcType=VARCHAR},
+      score_time = #{record.scoreTime,jdbcType=VARCHAR},
+      score_state = #{record.scoreState,jdbcType=INTEGER},
+      score_orgcode = #{record.scoreOrgcode,jdbcType=VARCHAR},
+      score_orgcitycode = #{record.scoreOrgcitycode,jdbcType=VARCHAR},
+      delete_mark = #{record.deleteMark,jdbcType=VARCHAR},
+      select_state = #{record.selectState,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywl.dto.GspwLoadScore">
+    update gspw_load_score
+    <set>
+      <if test="scoreProjectName != null">
+        score_project_name = #{scoreProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreProjectId != null">
+        score_project_id = #{scoreProjectId,jdbcType=INTEGER},
+      </if>
+      <if test="scoreContractor != null">
+        score_contractor = #{scoreContractor,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreContractorCode != null">
+        score_contractor_code = #{scoreContractorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreOwnerGrade != null">
+        score_owner_grade = #{scoreOwnerGrade,jdbcType=INTEGER},
+      </if>
+      <if test="scoreCityGrade != null">
+        score_city_grade = #{scoreCityGrade,jdbcType=INTEGER},
+      </if>
+      <if test="scoreDeptName != null">
+        score_dept_name = #{scoreDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreDeptCode != null">
+        score_dept_code = #{scoreDeptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreGroup != null">
+        score_group = #{scoreGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreGroupCode != null">
+        score_group_code = #{scoreGroupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreTotal != null">
+        score_total = #{scoreTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreTime != null">
+        score_time = #{scoreTime,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreState != null">
+        score_state = #{scoreState,jdbcType=INTEGER},
+      </if>
+      <if test="scoreOrgcode != null">
+        score_orgcode = #{scoreOrgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreOrgcitycode != null">
+        score_orgcitycode = #{scoreOrgcitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteMark != null">
+        delete_mark = #{deleteMark,jdbcType=VARCHAR},
+      </if>
+      <if test="selectState != null">
+        select_state = #{selectState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where score_id = #{scoreId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywl.dto.GspwLoadScore">
+    update gspw_load_score
+    set score_project_name = #{scoreProjectName,jdbcType=VARCHAR},
+      score_project_id = #{scoreProjectId,jdbcType=INTEGER},
+      score_contractor = #{scoreContractor,jdbcType=VARCHAR},
+      score_contractor_code = #{scoreContractorCode,jdbcType=VARCHAR},
+      score_owner_grade = #{scoreOwnerGrade,jdbcType=INTEGER},
+      score_city_grade = #{scoreCityGrade,jdbcType=INTEGER},
+      score_dept_name = #{scoreDeptName,jdbcType=VARCHAR},
+      score_dept_code = #{scoreDeptCode,jdbcType=VARCHAR},
+      score_group = #{scoreGroup,jdbcType=VARCHAR},
+      score_group_code = #{scoreGroupCode,jdbcType=VARCHAR},
+      score_total = #{scoreTotal,jdbcType=VARCHAR},
+      score_time = #{scoreTime,jdbcType=VARCHAR},
+      score_state = #{scoreState,jdbcType=INTEGER},
+      score_orgcode = #{scoreOrgcode,jdbcType=VARCHAR},
+      score_orgcitycode = #{scoreOrgcitycode,jdbcType=VARCHAR},
+      delete_mark = #{deleteMark,jdbcType=VARCHAR},
+      select_state = #{selectState,jdbcType=INTEGER}
+    where score_id = #{scoreId,jdbcType=INTEGER}
+  </update>
+</mapper>

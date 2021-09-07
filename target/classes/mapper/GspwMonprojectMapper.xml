@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwMonprojectMapper">
+  <resultMap id="BaseResultMap" type="com.ywl.dto.GspwMonproject">
+    <id column="monproject_id" jdbcType="VARCHAR" property="monprojectId" />
+    <result column="monproject_name" jdbcType="VARCHAR" property="monprojectName" />
+    <result column="monproject_wbs" jdbcType="VARCHAR" property="monprojectWbs" />
+    <result column="project_wbs" jdbcType="VARCHAR" property="projectWbs" />
+    <result column="monproject_investment" jdbcType="VARCHAR" property="monprojectInvestment" />
+    <result column="monproject_context" jdbcType="VARCHAR" property="monprojectContext" />
+    <result column="monproject_date" jdbcType="TIMESTAMP" property="monprojectDate" />
+    <result column="monproject_flowaudit_userWorkCode" jdbcType="VARCHAR" property="monprojectFlowauditUserworkcode" />
+    <result column="monproject_flowaudit_userName" jdbcType="VARCHAR" property="monprojectFlowauditUsername" />
+    <result column="monproject_report_userName" jdbcType="VARCHAR" property="monprojectReportUsername" />
+    <result column="monproject_report_userWorkCode" jdbcType="VARCHAR" property="monprojectReportUserworkcode" />
+    <result column="monproject_isUse" jdbcType="INTEGER" property="monprojectIsuse" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="taskid" jdbcType="VARCHAR" property="taskid" />
+    <result column="deleteMark" jdbcType="INTEGER" property="deletemark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    monproject_id, monproject_name, monproject_wbs, project_wbs, monproject_investment, 
+    monproject_context, monproject_date, monproject_flowaudit_userWorkCode, monproject_flowaudit_userName, 
+    monproject_report_userName, monproject_report_userWorkCode, monproject_isUse, status, 
+    taskid, deleteMark
+  </sql>
+  <select id="selectByExample" parameterType="com.ywl.dto.GspwMonprojectExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gspw_monproject
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gspw_monproject
+    where monproject_id = #{monprojectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from gspw_monproject
+    where monproject_id = #{monprojectId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ywl.dto.GspwMonprojectExample">
+    delete from gspw_monproject
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ywl.dto.GspwMonproject">
+    insert into gspw_monproject (monproject_id, monproject_name, monproject_wbs, 
+      project_wbs, monproject_investment, monproject_context, 
+      monproject_date, monproject_flowaudit_userWorkCode, 
+      monproject_flowaudit_userName, monproject_report_userName, 
+      monproject_report_userWorkCode, monproject_isUse, 
+      status, taskid, deleteMark
+      )
+    values (#{monprojectId,jdbcType=VARCHAR}, #{monprojectName,jdbcType=VARCHAR}, #{monprojectWbs,jdbcType=VARCHAR}, 
+      #{projectWbs,jdbcType=VARCHAR}, #{monprojectInvestment,jdbcType=VARCHAR}, #{monprojectContext,jdbcType=VARCHAR}, 
+      #{monprojectDate,jdbcType=TIMESTAMP}, #{monprojectFlowauditUserworkcode,jdbcType=VARCHAR}, 
+      #{monprojectFlowauditUsername,jdbcType=VARCHAR}, #{monprojectReportUsername,jdbcType=VARCHAR}, 
+      #{monprojectReportUserworkcode,jdbcType=VARCHAR}, #{monprojectIsuse,jdbcType=INTEGER}, 
+      #{status,jdbcType=VARCHAR}, #{taskid,jdbcType=VARCHAR}, #{deletemark,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywl.dto.GspwMonproject">
+    insert into gspw_monproject
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="monprojectId != null">
+        monproject_id,
+      </if>
+      <if test="monprojectName != null">
+        monproject_name,
+      </if>
+      <if test="monprojectWbs != null">
+        monproject_wbs,
+      </if>
+      <if test="projectWbs != null">
+        project_wbs,
+      </if>
+      <if test="monprojectInvestment != null">
+        monproject_investment,
+      </if>
+      <if test="monprojectContext != null">
+        monproject_context,
+      </if>
+      <if test="monprojectDate != null">
+        monproject_date,
+      </if>
+      <if test="monprojectFlowauditUserworkcode != null">
+        monproject_flowaudit_userWorkCode,
+      </if>
+      <if test="monprojectFlowauditUsername != null">
+        monproject_flowaudit_userName,
+      </if>
+      <if test="monprojectReportUsername != null">
+        monproject_report_userName,
+      </if>
+      <if test="monprojectReportUserworkcode != null">
+        monproject_report_userWorkCode,
+      </if>
+      <if test="monprojectIsuse != null">
+        monproject_isUse,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="taskid != null">
+        taskid,
+      </if>
+      <if test="deletemark != null">
+        deleteMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="monprojectId != null">
+        #{monprojectId,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectName != null">
+        #{monprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectWbs != null">
+        #{monprojectWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="projectWbs != null">
+        #{projectWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectInvestment != null">
+        #{monprojectInvestment,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectContext != null">
+        #{monprojectContext,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectDate != null">
+        #{monprojectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="monprojectFlowauditUserworkcode != null">
+        #{monprojectFlowauditUserworkcode,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectFlowauditUsername != null">
+        #{monprojectFlowauditUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectReportUsername != null">
+        #{monprojectReportUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectReportUserworkcode != null">
+        #{monprojectReportUserworkcode,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectIsuse != null">
+        #{monprojectIsuse,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="taskid != null">
+        #{taskid,jdbcType=VARCHAR},
+      </if>
+      <if test="deletemark != null">
+        #{deletemark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ywl.dto.GspwMonprojectExample" resultType="java.lang.Long">
+    select count(*) from gspw_monproject
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update gspw_monproject
+    <set>
+      <if test="record.monprojectId != null">
+        monproject_id = #{record.monprojectId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectName != null">
+        monproject_name = #{record.monprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectWbs != null">
+        monproject_wbs = #{record.monprojectWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectWbs != null">
+        project_wbs = #{record.projectWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectInvestment != null">
+        monproject_investment = #{record.monprojectInvestment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectContext != null">
+        monproject_context = #{record.monprojectContext,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectDate != null">
+        monproject_date = #{record.monprojectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.monprojectFlowauditUserworkcode != null">
+        monproject_flowaudit_userWorkCode = #{record.monprojectFlowauditUserworkcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectFlowauditUsername != null">
+        monproject_flowaudit_userName = #{record.monprojectFlowauditUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectReportUsername != null">
+        monproject_report_userName = #{record.monprojectReportUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectReportUserworkcode != null">
+        monproject_report_userWorkCode = #{record.monprojectReportUserworkcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monprojectIsuse != null">
+        monproject_isUse = #{record.monprojectIsuse,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskid != null">
+        taskid = #{record.taskid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deletemark != null">
+        deleteMark = #{record.deletemark,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update gspw_monproject
+    set monproject_id = #{record.monprojectId,jdbcType=VARCHAR},
+      monproject_name = #{record.monprojectName,jdbcType=VARCHAR},
+      monproject_wbs = #{record.monprojectWbs,jdbcType=VARCHAR},
+      project_wbs = #{record.projectWbs,jdbcType=VARCHAR},
+      monproject_investment = #{record.monprojectInvestment,jdbcType=VARCHAR},
+      monproject_context = #{record.monprojectContext,jdbcType=VARCHAR},
+      monproject_date = #{record.monprojectDate,jdbcType=TIMESTAMP},
+      monproject_flowaudit_userWorkCode = #{record.monprojectFlowauditUserworkcode,jdbcType=VARCHAR},
+      monproject_flowaudit_userName = #{record.monprojectFlowauditUsername,jdbcType=VARCHAR},
+      monproject_report_userName = #{record.monprojectReportUsername,jdbcType=VARCHAR},
+      monproject_report_userWorkCode = #{record.monprojectReportUserworkcode,jdbcType=VARCHAR},
+      monproject_isUse = #{record.monprojectIsuse,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=VARCHAR},
+      taskid = #{record.taskid,jdbcType=VARCHAR},
+      deleteMark = #{record.deletemark,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywl.dto.GspwMonproject">
+    update gspw_monproject
+    <set>
+      <if test="monprojectName != null">
+        monproject_name = #{monprojectName,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectWbs != null">
+        monproject_wbs = #{monprojectWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="projectWbs != null">
+        project_wbs = #{projectWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectInvestment != null">
+        monproject_investment = #{monprojectInvestment,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectContext != null">
+        monproject_context = #{monprojectContext,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectDate != null">
+        monproject_date = #{monprojectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="monprojectFlowauditUserworkcode != null">
+        monproject_flowaudit_userWorkCode = #{monprojectFlowauditUserworkcode,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectFlowauditUsername != null">
+        monproject_flowaudit_userName = #{monprojectFlowauditUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectReportUsername != null">
+        monproject_report_userName = #{monprojectReportUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectReportUserworkcode != null">
+        monproject_report_userWorkCode = #{monprojectReportUserworkcode,jdbcType=VARCHAR},
+      </if>
+      <if test="monprojectIsuse != null">
+        monproject_isUse = #{monprojectIsuse,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="taskid != null">
+        taskid = #{taskid,jdbcType=VARCHAR},
+      </if>
+      <if test="deletemark != null">
+        deleteMark = #{deletemark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where monproject_id = #{monprojectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywl.dto.GspwMonproject">
+    update gspw_monproject
+    set monproject_name = #{monprojectName,jdbcType=VARCHAR},
+      monproject_wbs = #{monprojectWbs,jdbcType=VARCHAR},
+      project_wbs = #{projectWbs,jdbcType=VARCHAR},
+      monproject_investment = #{monprojectInvestment,jdbcType=VARCHAR},
+      monproject_context = #{monprojectContext,jdbcType=VARCHAR},
+      monproject_date = #{monprojectDate,jdbcType=TIMESTAMP},
+      monproject_flowaudit_userWorkCode = #{monprojectFlowauditUserworkcode,jdbcType=VARCHAR},
+      monproject_flowaudit_userName = #{monprojectFlowauditUsername,jdbcType=VARCHAR},
+      monproject_report_userName = #{monprojectReportUsername,jdbcType=VARCHAR},
+      monproject_report_userWorkCode = #{monprojectReportUserworkcode,jdbcType=VARCHAR},
+      monproject_isUse = #{monprojectIsuse,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      taskid = #{taskid,jdbcType=VARCHAR},
+      deleteMark = #{deletemark,jdbcType=INTEGER}
+    where monproject_id = #{monprojectId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwSurveyinfoMapper">
+  <resultMap id="BaseResultMap" type="com.ywl.dto.GspwSurveyinfo">
+    <id column="surveyInfo_id" jdbcType="INTEGER" property="surveyinfoId" />
+    <result column="packProject_id" jdbcType="INTEGER" property="packprojectId" />
+    <result column="monproject_id" jdbcType="VARCHAR" property="monprojectId" />
+    <result column="surveyInfo_wbs" jdbcType="VARCHAR" property="surveyinfoWbs" />
+    <result column="surveyInfo_name" jdbcType="VARCHAR" property="surveyinfoName" />
+    <result column="surveyInfo_position" jdbcType="VARCHAR" property="surveyinfoPosition" />
+    <result column="deleteMark" jdbcType="INTEGER" property="deletemark" />
+    <result column="panoramic_photo" jdbcType="VARCHAR" property="panoramicPhoto" />
+    <result column="disclose_photo" jdbcType="VARCHAR" property="disclosePhoto" />
+    <result column="workTicket_photo" jdbcType="VARCHAR" property="workticketPhoto" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="is_import" jdbcType="INTEGER" property="isImport" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    surveyInfo_id, packProject_id, monproject_id, surveyInfo_wbs, surveyInfo_name, surveyInfo_position, 
+    deleteMark, panoramic_photo, disclose_photo, workTicket_photo, content, is_import
+  </sql>
+  <select id="selectByExample" parameterType="com.ywl.dto.GspwSurveyinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gspw_surveyinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gspw_surveyinfo
+    where surveyInfo_id = #{surveyinfoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gspw_surveyinfo
+    where surveyInfo_id = #{surveyinfoId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ywl.dto.GspwSurveyinfoExample">
+    delete from gspw_surveyinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ywl.dto.GspwSurveyinfo">
+    insert into gspw_surveyinfo (surveyInfo_id, packProject_id, monproject_id, 
+      surveyInfo_wbs, surveyInfo_name, surveyInfo_position, 
+      deleteMark, panoramic_photo, disclose_photo, 
+      workTicket_photo, content, is_import
+      )
+    values (#{surveyinfoId,jdbcType=INTEGER}, #{packprojectId,jdbcType=INTEGER}, #{monprojectId,jdbcType=VARCHAR}, 
+      #{surveyinfoWbs,jdbcType=VARCHAR}, #{surveyinfoName,jdbcType=VARCHAR}, #{surveyinfoPosition,jdbcType=VARCHAR}, 
+      #{deletemark,jdbcType=INTEGER}, #{panoramicPhoto,jdbcType=VARCHAR}, #{disclosePhoto,jdbcType=VARCHAR}, 
+      #{workticketPhoto,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{isImport,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywl.dto.GspwSurveyinfo">
+    insert into gspw_surveyinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="surveyinfoId != null">
+        surveyInfo_id,
+      </if>
+      <if test="packprojectId != null">
+        packProject_id,
+      </if>
+      <if test="monprojectId != null">
+        monproject_id,
+      </if>
+      <if test="surveyinfoWbs != null">
+        surveyInfo_wbs,
+      </if>
+      <if test="surveyinfoName != null">
+        surveyInfo_name,
+      </if>
+      <if test="surveyinfoPosition != null">
+        surveyInfo_position,
+      </if>
+      <if test="deletemark != null">
+        deleteMark,
+      </if>
+      <if test="panoramicPhoto != null">
+        panoramic_photo,
+      </if>
+      <if test="disclosePhoto != null">
+        disclose_photo,
+      </if>
+      <if test="workticketPhoto != null">
+        workTicket_photo,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="isImport != null">
+        is_import,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="surveyinfoId != null">
+        #{surveyinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="packprojectId != null">
+        #{packprojectId,jdbcType=INTEGER},
+      </if>
+      <if test="monprojectId != null">
+        #{monprojectId,jdbcType=VARCHAR},
+      </if>
+      <if test="surveyinfoWbs != null">
+        #{surveyinfoWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="surveyinfoName != null">
+        #{surveyinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="surveyinfoPosition != null">
+        #{surveyinfoPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="deletemark != null">
+        #{deletemark,jdbcType=INTEGER},
+      </if>
+      <if test="panoramicPhoto != null">
+        #{panoramicPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="disclosePhoto != null">
+        #{disclosePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="workticketPhoto != null">
+        #{workticketPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="isImport != null">
+        #{isImport,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ywl.dto.GspwSurveyinfoExample" resultType="java.lang.Long">
+    select count(*) from gspw_surveyinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update gspw_surveyinfo
+    <set>
+      <if test="record.surveyinfoId != null">
+        surveyInfo_id = #{record.surveyinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.packprojectId != null">
+        packProject_id = #{record.packprojectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.monprojectId != null">
+        monproject_id = #{record.monprojectId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.surveyinfoWbs != null">
+        surveyInfo_wbs = #{record.surveyinfoWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.surveyinfoName != null">
+        surveyInfo_name = #{record.surveyinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.surveyinfoPosition != null">
+        surveyInfo_position = #{record.surveyinfoPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deletemark != null">
+        deleteMark = #{record.deletemark,jdbcType=INTEGER},
+      </if>
+      <if test="record.panoramicPhoto != null">
+        panoramic_photo = #{record.panoramicPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.disclosePhoto != null">
+        disclose_photo = #{record.disclosePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workticketPhoto != null">
+        workTicket_photo = #{record.workticketPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isImport != null">
+        is_import = #{record.isImport,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update gspw_surveyinfo
+    set surveyInfo_id = #{record.surveyinfoId,jdbcType=INTEGER},
+      packProject_id = #{record.packprojectId,jdbcType=INTEGER},
+      monproject_id = #{record.monprojectId,jdbcType=VARCHAR},
+      surveyInfo_wbs = #{record.surveyinfoWbs,jdbcType=VARCHAR},
+      surveyInfo_name = #{record.surveyinfoName,jdbcType=VARCHAR},
+      surveyInfo_position = #{record.surveyinfoPosition,jdbcType=VARCHAR},
+      deleteMark = #{record.deletemark,jdbcType=INTEGER},
+      panoramic_photo = #{record.panoramicPhoto,jdbcType=VARCHAR},
+      disclose_photo = #{record.disclosePhoto,jdbcType=VARCHAR},
+      workTicket_photo = #{record.workticketPhoto,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      is_import = #{record.isImport,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywl.dto.GspwSurveyinfo">
+    update gspw_surveyinfo
+    <set>
+      <if test="packprojectId != null">
+        packProject_id = #{packprojectId,jdbcType=INTEGER},
+      </if>
+      <if test="monprojectId != null">
+        monproject_id = #{monprojectId,jdbcType=VARCHAR},
+      </if>
+      <if test="surveyinfoWbs != null">
+        surveyInfo_wbs = #{surveyinfoWbs,jdbcType=VARCHAR},
+      </if>
+      <if test="surveyinfoName != null">
+        surveyInfo_name = #{surveyinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="surveyinfoPosition != null">
+        surveyInfo_position = #{surveyinfoPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="deletemark != null">
+        deleteMark = #{deletemark,jdbcType=INTEGER},
+      </if>
+      <if test="panoramicPhoto != null">
+        panoramic_photo = #{panoramicPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="disclosePhoto != null">
+        disclose_photo = #{disclosePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="workticketPhoto != null">
+        workTicket_photo = #{workticketPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="isImport != null">
+        is_import = #{isImport,jdbcType=INTEGER},
+      </if>
+    </set>
+    where surveyInfo_id = #{surveyinfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywl.dto.GspwSurveyinfo">
+    update gspw_surveyinfo
+    set packProject_id = #{packprojectId,jdbcType=INTEGER},
+      monproject_id = #{monprojectId,jdbcType=VARCHAR},
+      surveyInfo_wbs = #{surveyinfoWbs,jdbcType=VARCHAR},
+      surveyInfo_name = #{surveyinfoName,jdbcType=VARCHAR},
+      surveyInfo_position = #{surveyinfoPosition,jdbcType=VARCHAR},
+      deleteMark = #{deletemark,jdbcType=INTEGER},
+      panoramic_photo = #{panoramicPhoto,jdbcType=VARCHAR},
+      disclose_photo = #{disclosePhoto,jdbcType=VARCHAR},
+      workTicket_photo = #{workticketPhoto,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      is_import = #{isImport,jdbcType=INTEGER}
+    where surveyInfo_id = #{surveyinfoId,jdbcType=INTEGER}
+  </update>
+</mapper>

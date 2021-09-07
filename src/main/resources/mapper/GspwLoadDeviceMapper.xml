@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwLoadDeviceMapper">
+    <resultMap id="BaseResultMap" type="com.ywl.dto.GspwLoadDevice">
+        <id column="device_id" jdbcType="INTEGER" property="deviceId"/>
+        <result column="device_score_id" jdbcType="INTEGER" property="deviceScoreId"/>
+        <result column="device_type_id" jdbcType="INTEGER" property="deviceTypeId"/>
+        <result column="device_name" jdbcType="VARCHAR" property="deviceName"/>
+        <result column="device_purpose" jdbcType="VARCHAR" property="devicePurpose"/>
+        <result column="device_no" jdbcType="VARCHAR" property="deviceNo"/>
+        <result column="device_final_no" jdbcType="VARCHAR" property="deviceFinalNo"/>
+        <result column="device_context" jdbcType="VARCHAR" property="deviceContext"/>
+        <result column="device_url" jdbcType="VARCHAR" property="deviceUrl"/>
+        <result column="device_grade" jdbcType="VARCHAR" property="deviceGrade"/>
+        <result column="delete_mark" jdbcType="INTEGER" property="deleteMark"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        device_id, device_score_id, device_type_id, device_name, device_purpose, device_no,
+    device_final_no, device_context, device_url, device_grade, delete_mark
+    </sql>
+    <select id="selectByExample" parameterType="com.ywl.dto.GspwLoadDeviceExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from gspw_load_device
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gspw_load_device
+        where device_id = #{deviceId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from gspw_load_device
+        where device_id = #{deviceId,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.ywl.dto.GspwLoadDeviceExample">
+        delete from gspw_load_device
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.ywl.dto.GspwLoadDevice">
+        insert into gspw_load_device (device_id, device_score_id, device_type_id,
+                                      device_name, device_purpose, device_no,
+                                      device_final_no, device_context, device_url,
+                                      device_grade, delete_mark)
+        values (#{deviceId,jdbcType=INTEGER}, #{deviceScoreId,jdbcType=INTEGER}, #{deviceTypeId,jdbcType=INTEGER},
+                #{deviceName,jdbcType=VARCHAR}, #{devicePurpose,jdbcType=VARCHAR}, #{deviceNo,jdbcType=VARCHAR},
+                #{deviceFinalNo,jdbcType=VARCHAR}, #{deviceContext,jdbcType=VARCHAR}, #{deviceUrl,jdbcType=VARCHAR},
+                #{deviceGrade,jdbcType=VARCHAR}, #{deleteMark,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ywl.dto.GspwLoadDevice">
+        insert into gspw_load_device
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="deviceId != null">
+                device_id,
+            </if>
+            <if test="deviceScoreId != null">
+                device_score_id,
+            </if>
+            <if test="deviceTypeId != null">
+                device_type_id,
+            </if>
+            <if test="deviceName != null">
+                device_name,
+            </if>
+            <if test="devicePurpose != null">
+                device_purpose,
+            </if>
+            <if test="deviceNo != null">
+                device_no,
+            </if>
+            <if test="deviceFinalNo != null">
+                device_final_no,
+            </if>
+            <if test="deviceContext != null">
+                device_context,
+            </if>
+            <if test="deviceUrl != null">
+                device_url,
+            </if>
+            <if test="deviceGrade != null">
+                device_grade,
+            </if>
+            <if test="deleteMark != null">
+                delete_mark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="deviceId != null">
+                #{deviceId,jdbcType=INTEGER},
+            </if>
+            <if test="deviceScoreId != null">
+                #{deviceScoreId,jdbcType=INTEGER},
+            </if>
+            <if test="deviceTypeId != null">
+                #{deviceTypeId,jdbcType=INTEGER},
+            </if>
+            <if test="deviceName != null">
+                #{deviceName,jdbcType=VARCHAR},
+            </if>
+            <if test="devicePurpose != null">
+                #{devicePurpose,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceNo != null">
+                #{deviceNo,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceFinalNo != null">
+                #{deviceFinalNo,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceContext != null">
+                #{deviceContext,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceUrl != null">
+                #{deviceUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceGrade != null">
+                #{deviceGrade,jdbcType=VARCHAR},
+            </if>
+            <if test="deleteMark != null">
+                #{deleteMark,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.ywl.dto.GspwLoadDeviceExample" resultType="java.lang.Long">
+        select count(*) from gspw_load_device
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update gspw_load_device
+        <set>
+            <if test="record.deviceId != null">
+                device_id = #{record.deviceId,jdbcType=INTEGER},
+            </if>
+            <if test="record.deviceScoreId != null">
+                device_score_id = #{record.deviceScoreId,jdbcType=INTEGER},
+            </if>
+            <if test="record.deviceTypeId != null">
+                device_type_id = #{record.deviceTypeId,jdbcType=INTEGER},
+            </if>
+            <if test="record.deviceName != null">
+                device_name = #{record.deviceName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.devicePurpose != null">
+                device_purpose = #{record.devicePurpose,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deviceNo != null">
+                device_no = #{record.deviceNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deviceFinalNo != null">
+                device_final_no = #{record.deviceFinalNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deviceContext != null">
+                device_context = #{record.deviceContext,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deviceUrl != null">
+                device_url = #{record.deviceUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deviceGrade != null">
+                device_grade = #{record.deviceGrade,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deleteMark != null">
+                delete_mark = #{record.deleteMark,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update gspw_load_device
+        set device_id = #{record.deviceId,jdbcType=INTEGER},
+        device_score_id = #{record.deviceScoreId,jdbcType=INTEGER},
+        device_type_id = #{record.deviceTypeId,jdbcType=INTEGER},
+        device_name = #{record.deviceName,jdbcType=VARCHAR},
+        device_purpose = #{record.devicePurpose,jdbcType=VARCHAR},
+        device_no = #{record.deviceNo,jdbcType=VARCHAR},
+        device_final_no = #{record.deviceFinalNo,jdbcType=VARCHAR},
+        device_context = #{record.deviceContext,jdbcType=VARCHAR},
+        device_url = #{record.deviceUrl,jdbcType=VARCHAR},
+        device_grade = #{record.deviceGrade,jdbcType=VARCHAR},
+        delete_mark = #{record.deleteMark,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ywl.dto.GspwLoadDevice">
+        update gspw_load_device
+        <set>
+            <if test="deviceScoreId != null">
+                device_score_id = #{deviceScoreId,jdbcType=INTEGER},
+            </if>
+            <if test="deviceTypeId != null">
+                device_type_id = #{deviceTypeId,jdbcType=INTEGER},
+            </if>
+            <if test="deviceName != null">
+                device_name = #{deviceName,jdbcType=VARCHAR},
+            </if>
+            <if test="devicePurpose != null">
+                device_purpose = #{devicePurpose,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceNo != null">
+                device_no = #{deviceNo,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceFinalNo != null">
+                device_final_no = #{deviceFinalNo,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceContext != null">
+                device_context = #{deviceContext,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceUrl != null">
+                device_url = #{deviceUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceGrade != null">
+                device_grade = #{deviceGrade,jdbcType=VARCHAR},
+            </if>
+            <if test="deleteMark != null">
+                delete_mark = #{deleteMark,jdbcType=INTEGER},
+            </if>
+        </set>
+        where device_id = #{deviceId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ywl.dto.GspwLoadDevice">
+        update gspw_load_device
+        set device_score_id = #{deviceScoreId,jdbcType=INTEGER},
+            device_type_id  = #{deviceTypeId,jdbcType=INTEGER},
+            device_name     = #{deviceName,jdbcType=VARCHAR},
+            device_purpose  = #{devicePurpose,jdbcType=VARCHAR},
+            device_no       = #{deviceNo,jdbcType=VARCHAR},
+            device_final_no = #{deviceFinalNo,jdbcType=VARCHAR},
+            device_context  = #{deviceContext,jdbcType=VARCHAR},
+            device_url      = #{deviceUrl,jdbcType=VARCHAR},
+            device_grade    = #{deviceGrade,jdbcType=VARCHAR},
+            delete_mark     = #{deleteMark,jdbcType=INTEGER}
+        where device_id = #{deviceId,jdbcType=INTEGER}
+    </update>
+</mapper>

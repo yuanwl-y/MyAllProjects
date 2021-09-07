@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwPlanchangeAuitMapper">
+    <resultMap id="BaseResultMap" type="com.ywl.dto.GspwPlanchangeAuit">
+        <id column="planChangeAuid_id" jdbcType="INTEGER" property="planchangeauidId"/>
+        <result column="content_id" jdbcType="VARCHAR" property="contentId"/>
+        <result column="taskId" jdbcType="VARCHAR" property="taskid"/>
+        <result column="audit_username" jdbcType="VARCHAR" property="auditUsername"/>
+        <result column="audit_worknum" jdbcType="VARCHAR" property="auditWorknum"/>
+        <result column="audit_result" jdbcType="VARCHAR" property="auditResult"/>
+        <result column="audit_context" jdbcType="VARCHAR" property="auditContext"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="audit_managername" jdbcType="VARCHAR" property="auditManagername"/>
+        <result column="audit_managerworknum" jdbcType="VARCHAR" property="auditManagerworknum"/>
+        <result column="audit_manager_result" jdbcType="VARCHAR" property="auditManagerResult"/>
+        <result column="audit_manager_context" jdbcType="VARCHAR" property="auditManagerContext"/>
+        <result column="report_time" jdbcType="VARCHAR" property="reportTime"/>
+        <result column="audit_time" jdbcType="VARCHAR" property="auditTime"/>
+        <result column="manager_audit_time" jdbcType="VARCHAR" property="managerAuditTime"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        planChangeAuid_id, content_id, taskId, audit_username, audit_worknum, audit_result,
+    audit_context, status, audit_managername, audit_managerworknum, audit_manager_result, 
+    audit_manager_context, report_time, audit_time, manager_audit_time
+    </sql>
+    <select id="selectByExample" parameterType="com.ywl.dto.GspwPlanchangeAuitExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from gspw_planchange_auit
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gspw_planchange_auit
+        where planChangeAuid_id = #{planchangeauidId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from gspw_planchange_auit
+        where planChangeAuid_id = #{planchangeauidId,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.ywl.dto.GspwPlanchangeAuitExample">
+        delete from gspw_planchange_auit
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.ywl.dto.GspwPlanchangeAuit">
+        insert into gspw_planchange_auit (planChangeAuid_id, content_id, taskId,
+                                          audit_username, audit_worknum, audit_result,
+                                          audit_context, status, audit_managername,
+                                          audit_managerworknum, audit_manager_result,
+                                          audit_manager_context, report_time, audit_time,
+                                          manager_audit_time)
+        values (#{planchangeauidId,jdbcType=INTEGER}, #{contentId,jdbcType=VARCHAR}, #{taskid,jdbcType=VARCHAR},
+                #{auditUsername,jdbcType=VARCHAR}, #{auditWorknum,jdbcType=VARCHAR}, #{auditResult,jdbcType=VARCHAR},
+                #{auditContext,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{auditManagername,jdbcType=VARCHAR},
+                #{auditManagerworknum,jdbcType=VARCHAR}, #{auditManagerResult,jdbcType=VARCHAR},
+                #{auditManagerContext,jdbcType=VARCHAR}, #{reportTime,jdbcType=VARCHAR}, #{auditTime,jdbcType=VARCHAR},
+                #{managerAuditTime,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ywl.dto.GspwPlanchangeAuit">
+        insert into gspw_planchange_auit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="planchangeauidId != null">
+                planChangeAuid_id,
+            </if>
+            <if test="contentId != null">
+                content_id,
+            </if>
+            <if test="taskid != null">
+                taskId,
+            </if>
+            <if test="auditUsername != null">
+                audit_username,
+            </if>
+            <if test="auditWorknum != null">
+                audit_worknum,
+            </if>
+            <if test="auditResult != null">
+                audit_result,
+            </if>
+            <if test="auditContext != null">
+                audit_context,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="auditManagername != null">
+                audit_managername,
+            </if>
+            <if test="auditManagerworknum != null">
+                audit_managerworknum,
+            </if>
+            <if test="auditManagerResult != null">
+                audit_manager_result,
+            </if>
+            <if test="auditManagerContext != null">
+                audit_manager_context,
+            </if>
+            <if test="reportTime != null">
+                report_time,
+            </if>
+            <if test="auditTime != null">
+                audit_time,
+            </if>
+            <if test="managerAuditTime != null">
+                manager_audit_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="planchangeauidId != null">
+                #{planchangeauidId,jdbcType=INTEGER},
+            </if>
+            <if test="contentId != null">
+                #{contentId,jdbcType=VARCHAR},
+            </if>
+            <if test="taskid != null">
+                #{taskid,jdbcType=VARCHAR},
+            </if>
+            <if test="auditUsername != null">
+                #{auditUsername,jdbcType=VARCHAR},
+            </if>
+            <if test="auditWorknum != null">
+                #{auditWorknum,jdbcType=VARCHAR},
+            </if>
+            <if test="auditResult != null">
+                #{auditResult,jdbcType=VARCHAR},
+            </if>
+            <if test="auditContext != null">
+                #{auditContext,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="auditManagername != null">
+                #{auditManagername,jdbcType=VARCHAR},
+            </if>
+            <if test="auditManagerworknum != null">
+                #{auditManagerworknum,jdbcType=VARCHAR},
+            </if>
+            <if test="auditManagerResult != null">
+                #{auditManagerResult,jdbcType=VARCHAR},
+            </if>
+            <if test="auditManagerContext != null">
+                #{auditManagerContext,jdbcType=VARCHAR},
+            </if>
+            <if test="reportTime != null">
+                #{reportTime,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                #{auditTime,jdbcType=VARCHAR},
+            </if>
+            <if test="managerAuditTime != null">
+                #{managerAuditTime,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.ywl.dto.GspwPlanchangeAuitExample" resultType="java.lang.Long">
+        select count(*) from gspw_planchange_auit
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update gspw_planchange_auit
+        <set>
+            <if test="record.planchangeauidId != null">
+                planChangeAuid_id = #{record.planchangeauidId,jdbcType=INTEGER},
+            </if>
+            <if test="record.contentId != null">
+                content_id = #{record.contentId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.taskid != null">
+                taskId = #{record.taskid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditUsername != null">
+                audit_username = #{record.auditUsername,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditWorknum != null">
+                audit_worknum = #{record.auditWorknum,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditResult != null">
+                audit_result = #{record.auditResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditContext != null">
+                audit_context = #{record.auditContext,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=INTEGER},
+            </if>
+            <if test="record.auditManagername != null">
+                audit_managername = #{record.auditManagername,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditManagerworknum != null">
+                audit_managerworknum = #{record.auditManagerworknum,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditManagerResult != null">
+                audit_manager_result = #{record.auditManagerResult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditManagerContext != null">
+                audit_manager_context = #{record.auditManagerContext,jdbcType=VARCHAR},
+            </if>
+            <if test="record.reportTime != null">
+                report_time = #{record.reportTime,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditTime != null">
+                audit_time = #{record.auditTime,jdbcType=VARCHAR},
+            </if>
+            <if test="record.managerAuditTime != null">
+                manager_audit_time = #{record.managerAuditTime,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update gspw_planchange_auit
+        set planChangeAuid_id = #{record.planchangeauidId,jdbcType=INTEGER},
+        content_id = #{record.contentId,jdbcType=VARCHAR},
+        taskId = #{record.taskid,jdbcType=VARCHAR},
+        audit_username = #{record.auditUsername,jdbcType=VARCHAR},
+        audit_worknum = #{record.auditWorknum,jdbcType=VARCHAR},
+        audit_result = #{record.auditResult,jdbcType=VARCHAR},
+        audit_context = #{record.auditContext,jdbcType=VARCHAR},
+        status = #{record.status,jdbcType=INTEGER},
+        audit_managername = #{record.auditManagername,jdbcType=VARCHAR},
+        audit_managerworknum = #{record.auditManagerworknum,jdbcType=VARCHAR},
+        audit_manager_result = #{record.auditManagerResult,jdbcType=VARCHAR},
+        audit_manager_context = #{record.auditManagerContext,jdbcType=VARCHAR},
+        report_time = #{record.reportTime,jdbcType=VARCHAR},
+        audit_time = #{record.auditTime,jdbcType=VARCHAR},
+        manager_audit_time = #{record.managerAuditTime,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ywl.dto.GspwPlanchangeAuit">
+        update gspw_planchange_auit
+        <set>
+            <if test="contentId != null">
+                content_id = #{contentId,jdbcType=VARCHAR},
+            </if>
+            <if test="taskid != null">
+                taskId = #{taskid,jdbcType=VARCHAR},
+            </if>
+            <if test="auditUsername != null">
+                audit_username = #{auditUsername,jdbcType=VARCHAR},
+            </if>
+            <if test="auditWorknum != null">
+                audit_worknum = #{auditWorknum,jdbcType=VARCHAR},
+            </if>
+            <if test="auditResult != null">
+                audit_result = #{auditResult,jdbcType=VARCHAR},
+            </if>
+            <if test="auditContext != null">
+                audit_context = #{auditContext,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="auditManagername != null">
+                audit_managername = #{auditManagername,jdbcType=VARCHAR},
+            </if>
+            <if test="auditManagerworknum != null">
+                audit_managerworknum = #{auditManagerworknum,jdbcType=VARCHAR},
+            </if>
+            <if test="auditManagerResult != null">
+                audit_manager_result = #{auditManagerResult,jdbcType=VARCHAR},
+            </if>
+            <if test="auditManagerContext != null">
+                audit_manager_context = #{auditManagerContext,jdbcType=VARCHAR},
+            </if>
+            <if test="reportTime != null">
+                report_time = #{reportTime,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                audit_time = #{auditTime,jdbcType=VARCHAR},
+            </if>
+            <if test="managerAuditTime != null">
+                manager_audit_time = #{managerAuditTime,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where planChangeAuid_id = #{planchangeauidId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ywl.dto.GspwPlanchangeAuit">
+        update gspw_planchange_auit
+        set content_id            = #{contentId,jdbcType=VARCHAR},
+            taskId                = #{taskid,jdbcType=VARCHAR},
+            audit_username        = #{auditUsername,jdbcType=VARCHAR},
+            audit_worknum         = #{auditWorknum,jdbcType=VARCHAR},
+            audit_result          = #{auditResult,jdbcType=VARCHAR},
+            audit_context         = #{auditContext,jdbcType=VARCHAR},
+            status                = #{status,jdbcType=INTEGER},
+            audit_managername     = #{auditManagername,jdbcType=VARCHAR},
+            audit_managerworknum  = #{auditManagerworknum,jdbcType=VARCHAR},
+            audit_manager_result  = #{auditManagerResult,jdbcType=VARCHAR},
+            audit_manager_context = #{auditManagerContext,jdbcType=VARCHAR},
+            report_time           = #{reportTime,jdbcType=VARCHAR},
+            audit_time            = #{auditTime,jdbcType=VARCHAR},
+            manager_audit_time    = #{managerAuditTime,jdbcType=VARCHAR}
+        where planChangeAuid_id = #{planchangeauidId,jdbcType=INTEGER}
+    </update>
+</mapper>

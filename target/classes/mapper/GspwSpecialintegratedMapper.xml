@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwSpecialintegratedMapper">
+  <resultMap id="BaseResultMap" type="com.ywl.dto.GspwSpecialintegrated">
+    <id column="special_id" jdbcType="VARCHAR" property="specialId" />
+    <result column="special_name" jdbcType="VARCHAR" property="specialName" />
+    <result column="special_year" jdbcType="VARCHAR" property="specialYear" />
+    <result column="special_stick" jdbcType="INTEGER" property="specialStick" />
+    <result column="integrated_id" jdbcType="VARCHAR" property="integratedId" />
+    <result column="special_remark" jdbcType="VARCHAR" property="specialRemark" />
+    <result column="deleteMark" jdbcType="INTEGER" property="deletemark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    special_id, special_name, special_year, special_stick, integrated_id, special_remark, 
+    deleteMark
+  </sql>
+  <select id="selectByExample" parameterType="com.ywl.dto.GspwSpecialintegratedExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gspw_specialintegrated
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gspw_specialintegrated
+    where special_id = #{specialId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from gspw_specialintegrated
+    where special_id = #{specialId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ywl.dto.GspwSpecialintegratedExample">
+    delete from gspw_specialintegrated
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ywl.dto.GspwSpecialintegrated">
+    insert into gspw_specialintegrated (special_id, special_name, special_year, 
+      special_stick, integrated_id, special_remark, 
+      deleteMark)
+    values (#{specialId,jdbcType=VARCHAR}, #{specialName,jdbcType=VARCHAR}, #{specialYear,jdbcType=VARCHAR}, 
+      #{specialStick,jdbcType=INTEGER}, #{integratedId,jdbcType=VARCHAR}, #{specialRemark,jdbcType=VARCHAR}, 
+      #{deletemark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywl.dto.GspwSpecialintegrated">
+    insert into gspw_specialintegrated
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="specialId != null">
+        special_id,
+      </if>
+      <if test="specialName != null">
+        special_name,
+      </if>
+      <if test="specialYear != null">
+        special_year,
+      </if>
+      <if test="specialStick != null">
+        special_stick,
+      </if>
+      <if test="integratedId != null">
+        integrated_id,
+      </if>
+      <if test="specialRemark != null">
+        special_remark,
+      </if>
+      <if test="deletemark != null">
+        deleteMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="specialId != null">
+        #{specialId,jdbcType=VARCHAR},
+      </if>
+      <if test="specialName != null">
+        #{specialName,jdbcType=VARCHAR},
+      </if>
+      <if test="specialYear != null">
+        #{specialYear,jdbcType=VARCHAR},
+      </if>
+      <if test="specialStick != null">
+        #{specialStick,jdbcType=INTEGER},
+      </if>
+      <if test="integratedId != null">
+        #{integratedId,jdbcType=VARCHAR},
+      </if>
+      <if test="specialRemark != null">
+        #{specialRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="deletemark != null">
+        #{deletemark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ywl.dto.GspwSpecialintegratedExample" resultType="java.lang.Long">
+    select count(*) from gspw_specialintegrated
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update gspw_specialintegrated
+    <set>
+      <if test="record.specialId != null">
+        special_id = #{record.specialId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specialName != null">
+        special_name = #{record.specialName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specialYear != null">
+        special_year = #{record.specialYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specialStick != null">
+        special_stick = #{record.specialStick,jdbcType=INTEGER},
+      </if>
+      <if test="record.integratedId != null">
+        integrated_id = #{record.integratedId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specialRemark != null">
+        special_remark = #{record.specialRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deletemark != null">
+        deleteMark = #{record.deletemark,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update gspw_specialintegrated
+    set special_id = #{record.specialId,jdbcType=VARCHAR},
+      special_name = #{record.specialName,jdbcType=VARCHAR},
+      special_year = #{record.specialYear,jdbcType=VARCHAR},
+      special_stick = #{record.specialStick,jdbcType=INTEGER},
+      integrated_id = #{record.integratedId,jdbcType=VARCHAR},
+      special_remark = #{record.specialRemark,jdbcType=VARCHAR},
+      deleteMark = #{record.deletemark,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywl.dto.GspwSpecialintegrated">
+    update gspw_specialintegrated
+    <set>
+      <if test="specialName != null">
+        special_name = #{specialName,jdbcType=VARCHAR},
+      </if>
+      <if test="specialYear != null">
+        special_year = #{specialYear,jdbcType=VARCHAR},
+      </if>
+      <if test="specialStick != null">
+        special_stick = #{specialStick,jdbcType=INTEGER},
+      </if>
+      <if test="integratedId != null">
+        integrated_id = #{integratedId,jdbcType=VARCHAR},
+      </if>
+      <if test="specialRemark != null">
+        special_remark = #{specialRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="deletemark != null">
+        deleteMark = #{deletemark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where special_id = #{specialId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywl.dto.GspwSpecialintegrated">
+    update gspw_specialintegrated
+    set special_name = #{specialName,jdbcType=VARCHAR},
+      special_year = #{specialYear,jdbcType=VARCHAR},
+      special_stick = #{specialStick,jdbcType=INTEGER},
+      integrated_id = #{integratedId,jdbcType=VARCHAR},
+      special_remark = #{specialRemark,jdbcType=VARCHAR},
+      deleteMark = #{deletemark,jdbcType=INTEGER}
+    where special_id = #{specialId,jdbcType=VARCHAR}
+  </update>
+</mapper>

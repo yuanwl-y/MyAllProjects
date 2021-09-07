@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwCancelplanMapper">
+    <resultMap id="BaseResultMap" type="com.ywl.dto.GspwCancelplan">
+        <id column="cancelPlanId" jdbcType="INTEGER" property="cancelplanid"/>
+        <result column="startTime" jdbcType="VARCHAR" property="starttime"/>
+        <result column="endTime" jdbcType="VARCHAR" property="endtime"/>
+        <result column="cancel_id" jdbcType="INTEGER" property="cancelId"/>
+        <result column="cancel_name" jdbcType="VARCHAR" property="cancelName"/>
+        <result column="cancelTime" jdbcType="VARCHAR" property="canceltime"/>
+        <result column="cancelResult" jdbcType="VARCHAR" property="cancelresult"/>
+        <result column="constructionPlan_id" jdbcType="INTEGER" property="constructionplanId"/>
+        <result column="deleteMark" jdbcType="INTEGER" property="deletemark"/>
+        <result column="days" jdbcType="VARCHAR" property="days"/>
+        <result column="taskId" jdbcType="VARCHAR" property="taskid"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="auditUserName" jdbcType="VARCHAR" property="auditusername"/>
+        <result column="auditWorkCode" jdbcType="VARCHAR" property="auditworkcode"/>
+        <result column="auditResult" jdbcType="VARCHAR" property="auditresult"/>
+        <result column="auditContext" jdbcType="VARCHAR" property="auditcontext"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        cancelPlanId, startTime, endTime, cancel_id, cancel_name, cancelTime, cancelResult,
+    constructionPlan_id, deleteMark, days, taskId, status, auditUserName, auditWorkCode, 
+    auditResult, auditContext
+    </sql>
+    <select id="selectByExample" parameterType="com.ywl.dto.GspwCancelplanExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from gspw_cancelplan
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gspw_cancelplan
+        where cancelPlanId = #{cancelplanid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from gspw_cancelplan
+        where cancelPlanId = #{cancelplanid,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.ywl.dto.GspwCancelplanExample">
+        delete from gspw_cancelplan
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.ywl.dto.GspwCancelplan">
+        insert into gspw_cancelplan (cancelPlanId, startTime, endTime,
+                                     cancel_id, cancel_name, cancelTime,
+                                     cancelResult, constructionPlan_id, deleteMark,
+                                     days, taskId, status,
+                                     auditUserName, auditWorkCode, auditResult,
+                                     auditContext)
+        values (#{cancelplanid,jdbcType=INTEGER}, #{starttime,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR},
+                #{cancelId,jdbcType=INTEGER}, #{cancelName,jdbcType=VARCHAR}, #{canceltime,jdbcType=VARCHAR},
+                #{cancelresult,jdbcType=VARCHAR}, #{constructionplanId,jdbcType=INTEGER},
+                #{deletemark,jdbcType=INTEGER},
+                #{days,jdbcType=VARCHAR}, #{taskid,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+                #{auditusername,jdbcType=VARCHAR}, #{auditworkcode,jdbcType=VARCHAR}, #{auditresult,jdbcType=VARCHAR},
+                #{auditcontext,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ywl.dto.GspwCancelplan">
+        insert into gspw_cancelplan
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="cancelplanid != null">
+                cancelPlanId,
+            </if>
+            <if test="starttime != null">
+                startTime,
+            </if>
+            <if test="endtime != null">
+                endTime,
+            </if>
+            <if test="cancelId != null">
+                cancel_id,
+            </if>
+            <if test="cancelName != null">
+                cancel_name,
+            </if>
+            <if test="canceltime != null">
+                cancelTime,
+            </if>
+            <if test="cancelresult != null">
+                cancelResult,
+            </if>
+            <if test="constructionplanId != null">
+                constructionPlan_id,
+            </if>
+            <if test="deletemark != null">
+                deleteMark,
+            </if>
+            <if test="days != null">
+                days,
+            </if>
+            <if test="taskid != null">
+                taskId,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="auditusername != null">
+                auditUserName,
+            </if>
+            <if test="auditworkcode != null">
+                auditWorkCode,
+            </if>
+            <if test="auditresult != null">
+                auditResult,
+            </if>
+            <if test="auditcontext != null">
+                auditContext,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="cancelplanid != null">
+                #{cancelplanid,jdbcType=INTEGER},
+            </if>
+            <if test="starttime != null">
+                #{starttime,jdbcType=VARCHAR},
+            </if>
+            <if test="endtime != null">
+                #{endtime,jdbcType=VARCHAR},
+            </if>
+            <if test="cancelId != null">
+                #{cancelId,jdbcType=INTEGER},
+            </if>
+            <if test="cancelName != null">
+                #{cancelName,jdbcType=VARCHAR},
+            </if>
+            <if test="canceltime != null">
+                #{canceltime,jdbcType=VARCHAR},
+            </if>
+            <if test="cancelresult != null">
+                #{cancelresult,jdbcType=VARCHAR},
+            </if>
+            <if test="constructionplanId != null">
+                #{constructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="deletemark != null">
+                #{deletemark,jdbcType=INTEGER},
+            </if>
+            <if test="days != null">
+                #{days,jdbcType=VARCHAR},
+            </if>
+            <if test="taskid != null">
+                #{taskid,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="auditusername != null">
+                #{auditusername,jdbcType=VARCHAR},
+            </if>
+            <if test="auditworkcode != null">
+                #{auditworkcode,jdbcType=VARCHAR},
+            </if>
+            <if test="auditresult != null">
+                #{auditresult,jdbcType=VARCHAR},
+            </if>
+            <if test="auditcontext != null">
+                #{auditcontext,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.ywl.dto.GspwCancelplanExample" resultType="java.lang.Long">
+        select count(*) from gspw_cancelplan
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update gspw_cancelplan
+        <set>
+            <if test="record.cancelplanid != null">
+                cancelPlanId = #{record.cancelplanid,jdbcType=INTEGER},
+            </if>
+            <if test="record.starttime != null">
+                startTime = #{record.starttime,jdbcType=VARCHAR},
+            </if>
+            <if test="record.endtime != null">
+                endTime = #{record.endtime,jdbcType=VARCHAR},
+            </if>
+            <if test="record.cancelId != null">
+                cancel_id = #{record.cancelId,jdbcType=INTEGER},
+            </if>
+            <if test="record.cancelName != null">
+                cancel_name = #{record.cancelName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.canceltime != null">
+                cancelTime = #{record.canceltime,jdbcType=VARCHAR},
+            </if>
+            <if test="record.cancelresult != null">
+                cancelResult = #{record.cancelresult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.constructionplanId != null">
+                constructionPlan_id = #{record.constructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="record.deletemark != null">
+                deleteMark = #{record.deletemark,jdbcType=INTEGER},
+            </if>
+            <if test="record.days != null">
+                days = #{record.days,jdbcType=VARCHAR},
+            </if>
+            <if test="record.taskid != null">
+                taskId = #{record.taskid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=INTEGER},
+            </if>
+            <if test="record.auditusername != null">
+                auditUserName = #{record.auditusername,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditworkcode != null">
+                auditWorkCode = #{record.auditworkcode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditresult != null">
+                auditResult = #{record.auditresult,jdbcType=VARCHAR},
+            </if>
+            <if test="record.auditcontext != null">
+                auditContext = #{record.auditcontext,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update gspw_cancelplan
+        set cancelPlanId = #{record.cancelplanid,jdbcType=INTEGER},
+        startTime = #{record.starttime,jdbcType=VARCHAR},
+        endTime = #{record.endtime,jdbcType=VARCHAR},
+        cancel_id = #{record.cancelId,jdbcType=INTEGER},
+        cancel_name = #{record.cancelName,jdbcType=VARCHAR},
+        cancelTime = #{record.canceltime,jdbcType=VARCHAR},
+        cancelResult = #{record.cancelresult,jdbcType=VARCHAR},
+        constructionPlan_id = #{record.constructionplanId,jdbcType=INTEGER},
+        deleteMark = #{record.deletemark,jdbcType=INTEGER},
+        days = #{record.days,jdbcType=VARCHAR},
+        taskId = #{record.taskid,jdbcType=VARCHAR},
+        status = #{record.status,jdbcType=INTEGER},
+        auditUserName = #{record.auditusername,jdbcType=VARCHAR},
+        auditWorkCode = #{record.auditworkcode,jdbcType=VARCHAR},
+        auditResult = #{record.auditresult,jdbcType=VARCHAR},
+        auditContext = #{record.auditcontext,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ywl.dto.GspwCancelplan">
+        update gspw_cancelplan
+        <set>
+            <if test="starttime != null">
+                startTime = #{starttime,jdbcType=VARCHAR},
+            </if>
+            <if test="endtime != null">
+                endTime = #{endtime,jdbcType=VARCHAR},
+            </if>
+            <if test="cancelId != null">
+                cancel_id = #{cancelId,jdbcType=INTEGER},
+            </if>
+            <if test="cancelName != null">
+                cancel_name = #{cancelName,jdbcType=VARCHAR},
+            </if>
+            <if test="canceltime != null">
+                cancelTime = #{canceltime,jdbcType=VARCHAR},
+            </if>
+            <if test="cancelresult != null">
+                cancelResult = #{cancelresult,jdbcType=VARCHAR},
+            </if>
+            <if test="constructionplanId != null">
+                constructionPlan_id = #{constructionplanId,jdbcType=INTEGER},
+            </if>
+            <if test="deletemark != null">
+                deleteMark = #{deletemark,jdbcType=INTEGER},
+            </if>
+            <if test="days != null">
+                days = #{days,jdbcType=VARCHAR},
+            </if>
+            <if test="taskid != null">
+                taskId = #{taskid,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="auditusername != null">
+                auditUserName = #{auditusername,jdbcType=VARCHAR},
+            </if>
+            <if test="auditworkcode != null">
+                auditWorkCode = #{auditworkcode,jdbcType=VARCHAR},
+            </if>
+            <if test="auditresult != null">
+                auditResult = #{auditresult,jdbcType=VARCHAR},
+            </if>
+            <if test="auditcontext != null">
+                auditContext = #{auditcontext,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where cancelPlanId = #{cancelplanid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ywl.dto.GspwCancelplan">
+        update gspw_cancelplan
+        set startTime           = #{starttime,jdbcType=VARCHAR},
+            endTime             = #{endtime,jdbcType=VARCHAR},
+            cancel_id           = #{cancelId,jdbcType=INTEGER},
+            cancel_name         = #{cancelName,jdbcType=VARCHAR},
+            cancelTime          = #{canceltime,jdbcType=VARCHAR},
+            cancelResult        = #{cancelresult,jdbcType=VARCHAR},
+            constructionPlan_id = #{constructionplanId,jdbcType=INTEGER},
+            deleteMark          = #{deletemark,jdbcType=INTEGER},
+            days                = #{days,jdbcType=VARCHAR},
+            taskId              = #{taskid,jdbcType=VARCHAR},
+            status              = #{status,jdbcType=INTEGER},
+            auditUserName       = #{auditusername,jdbcType=VARCHAR},
+            auditWorkCode       = #{auditworkcode,jdbcType=VARCHAR},
+            auditResult         = #{auditresult,jdbcType=VARCHAR},
+            auditContext        = #{auditcontext,jdbcType=VARCHAR}
+        where cancelPlanId = #{cancelplanid,jdbcType=INTEGER}
+    </update>
+</mapper>

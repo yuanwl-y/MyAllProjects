@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwClockMapper">
+  <resultMap id="BaseResultMap" type="com.ywl.dto.GspwClock">
+    <id column="clock_id" jdbcType="INTEGER" property="clockId" />
+    <result column="sign_time" jdbcType="VARCHAR" property="signTime" />
+    <result column="back_time" jdbcType="VARCHAR" property="backTime" />
+    <result column="clock_addr" jdbcType="VARCHAR" property="clockAddr" />
+    <result column="sign_clock_mark" jdbcType="INTEGER" property="signClockMark" />
+    <result column="archives_id" jdbcType="INTEGER" property="archivesId" />
+    <result column="deleteMark" jdbcType="INTEGER" property="deletemark" />
+    <result column="day" jdbcType="INTEGER" property="day" />
+    <result column="back_clock_mark" jdbcType="INTEGER" property="backClockMark" />
+    <result column="back_addr" jdbcType="VARCHAR" property="backAddr" />
+    <result column="constructionPlan_id" jdbcType="INTEGER" property="constructionplanId" />
+    <result column="sign_lati" jdbcType="VARCHAR" property="signLati" />
+    <result column="back_lati" jdbcType="VARCHAR" property="backLati" />
+    <result column="workLoad" jdbcType="VARCHAR" property="workload" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="work_ticket_url" jdbcType="VARCHAR" property="workTicketUrl" />
+    <result column="ground_protect_url" jdbcType="VARCHAR" property="groundProtectUrl" />
+    <result column="work_map_url" jdbcType="VARCHAR" property="workMapUrl" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    clock_id, sign_time, back_time, clock_addr, sign_clock_mark, archives_id, deleteMark, 
+    day, back_clock_mark, back_addr, constructionPlan_id, sign_lati, back_lati, workLoad, 
+    path, work_ticket_url, ground_protect_url, work_map_url
+  </sql>
+  <select id="selectByExample" parameterType="com.ywl.dto.GspwClockExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gspw_clock
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gspw_clock
+    where clock_id = #{clockId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gspw_clock
+    where clock_id = #{clockId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ywl.dto.GspwClockExample">
+    delete from gspw_clock
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ywl.dto.GspwClock">
+    insert into gspw_clock (clock_id, sign_time, back_time, 
+      clock_addr, sign_clock_mark, archives_id, 
+      deleteMark, day, back_clock_mark, 
+      back_addr, constructionPlan_id, sign_lati, 
+      back_lati, workLoad, path, 
+      work_ticket_url, ground_protect_url, work_map_url
+      )
+    values (#{clockId,jdbcType=INTEGER}, #{signTime,jdbcType=VARCHAR}, #{backTime,jdbcType=VARCHAR}, 
+      #{clockAddr,jdbcType=VARCHAR}, #{signClockMark,jdbcType=INTEGER}, #{archivesId,jdbcType=INTEGER}, 
+      #{deletemark,jdbcType=INTEGER}, #{day,jdbcType=INTEGER}, #{backClockMark,jdbcType=INTEGER}, 
+      #{backAddr,jdbcType=VARCHAR}, #{constructionplanId,jdbcType=INTEGER}, #{signLati,jdbcType=VARCHAR}, 
+      #{backLati,jdbcType=VARCHAR}, #{workload,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
+      #{workTicketUrl,jdbcType=VARCHAR}, #{groundProtectUrl,jdbcType=VARCHAR}, #{workMapUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywl.dto.GspwClock">
+    insert into gspw_clock
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clockId != null">
+        clock_id,
+      </if>
+      <if test="signTime != null">
+        sign_time,
+      </if>
+      <if test="backTime != null">
+        back_time,
+      </if>
+      <if test="clockAddr != null">
+        clock_addr,
+      </if>
+      <if test="signClockMark != null">
+        sign_clock_mark,
+      </if>
+      <if test="archivesId != null">
+        archives_id,
+      </if>
+      <if test="deletemark != null">
+        deleteMark,
+      </if>
+      <if test="day != null">
+        day,
+      </if>
+      <if test="backClockMark != null">
+        back_clock_mark,
+      </if>
+      <if test="backAddr != null">
+        back_addr,
+      </if>
+      <if test="constructionplanId != null">
+        constructionPlan_id,
+      </if>
+      <if test="signLati != null">
+        sign_lati,
+      </if>
+      <if test="backLati != null">
+        back_lati,
+      </if>
+      <if test="workload != null">
+        workLoad,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="workTicketUrl != null">
+        work_ticket_url,
+      </if>
+      <if test="groundProtectUrl != null">
+        ground_protect_url,
+      </if>
+      <if test="workMapUrl != null">
+        work_map_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clockId != null">
+        #{clockId,jdbcType=INTEGER},
+      </if>
+      <if test="signTime != null">
+        #{signTime,jdbcType=VARCHAR},
+      </if>
+      <if test="backTime != null">
+        #{backTime,jdbcType=VARCHAR},
+      </if>
+      <if test="clockAddr != null">
+        #{clockAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="signClockMark != null">
+        #{signClockMark,jdbcType=INTEGER},
+      </if>
+      <if test="archivesId != null">
+        #{archivesId,jdbcType=INTEGER},
+      </if>
+      <if test="deletemark != null">
+        #{deletemark,jdbcType=INTEGER},
+      </if>
+      <if test="day != null">
+        #{day,jdbcType=INTEGER},
+      </if>
+      <if test="backClockMark != null">
+        #{backClockMark,jdbcType=INTEGER},
+      </if>
+      <if test="backAddr != null">
+        #{backAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionplanId != null">
+        #{constructionplanId,jdbcType=INTEGER},
+      </if>
+      <if test="signLati != null">
+        #{signLati,jdbcType=VARCHAR},
+      </if>
+      <if test="backLati != null">
+        #{backLati,jdbcType=VARCHAR},
+      </if>
+      <if test="workload != null">
+        #{workload,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="workTicketUrl != null">
+        #{workTicketUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="groundProtectUrl != null">
+        #{groundProtectUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="workMapUrl != null">
+        #{workMapUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ywl.dto.GspwClockExample" resultType="java.lang.Long">
+    select count(*) from gspw_clock
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update gspw_clock
+    <set>
+      <if test="record.clockId != null">
+        clock_id = #{record.clockId,jdbcType=INTEGER},
+      </if>
+      <if test="record.signTime != null">
+        sign_time = #{record.signTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backTime != null">
+        back_time = #{record.backTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clockAddr != null">
+        clock_addr = #{record.clockAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signClockMark != null">
+        sign_clock_mark = #{record.signClockMark,jdbcType=INTEGER},
+      </if>
+      <if test="record.archivesId != null">
+        archives_id = #{record.archivesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deletemark != null">
+        deleteMark = #{record.deletemark,jdbcType=INTEGER},
+      </if>
+      <if test="record.day != null">
+        day = #{record.day,jdbcType=INTEGER},
+      </if>
+      <if test="record.backClockMark != null">
+        back_clock_mark = #{record.backClockMark,jdbcType=INTEGER},
+      </if>
+      <if test="record.backAddr != null">
+        back_addr = #{record.backAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.constructionplanId != null">
+        constructionPlan_id = #{record.constructionplanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.signLati != null">
+        sign_lati = #{record.signLati,jdbcType=VARCHAR},
+      </if>
+      <if test="record.backLati != null">
+        back_lati = #{record.backLati,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workload != null">
+        workLoad = #{record.workload,jdbcType=VARCHAR},
+      </if>
+      <if test="record.path != null">
+        path = #{record.path,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workTicketUrl != null">
+        work_ticket_url = #{record.workTicketUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groundProtectUrl != null">
+        ground_protect_url = #{record.groundProtectUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workMapUrl != null">
+        work_map_url = #{record.workMapUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update gspw_clock
+    set clock_id = #{record.clockId,jdbcType=INTEGER},
+      sign_time = #{record.signTime,jdbcType=VARCHAR},
+      back_time = #{record.backTime,jdbcType=VARCHAR},
+      clock_addr = #{record.clockAddr,jdbcType=VARCHAR},
+      sign_clock_mark = #{record.signClockMark,jdbcType=INTEGER},
+      archives_id = #{record.archivesId,jdbcType=INTEGER},
+      deleteMark = #{record.deletemark,jdbcType=INTEGER},
+      day = #{record.day,jdbcType=INTEGER},
+      back_clock_mark = #{record.backClockMark,jdbcType=INTEGER},
+      back_addr = #{record.backAddr,jdbcType=VARCHAR},
+      constructionPlan_id = #{record.constructionplanId,jdbcType=INTEGER},
+      sign_lati = #{record.signLati,jdbcType=VARCHAR},
+      back_lati = #{record.backLati,jdbcType=VARCHAR},
+      workLoad = #{record.workload,jdbcType=VARCHAR},
+      path = #{record.path,jdbcType=VARCHAR},
+      work_ticket_url = #{record.workTicketUrl,jdbcType=VARCHAR},
+      ground_protect_url = #{record.groundProtectUrl,jdbcType=VARCHAR},
+      work_map_url = #{record.workMapUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywl.dto.GspwClock">
+    update gspw_clock
+    <set>
+      <if test="signTime != null">
+        sign_time = #{signTime,jdbcType=VARCHAR},
+      </if>
+      <if test="backTime != null">
+        back_time = #{backTime,jdbcType=VARCHAR},
+      </if>
+      <if test="clockAddr != null">
+        clock_addr = #{clockAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="signClockMark != null">
+        sign_clock_mark = #{signClockMark,jdbcType=INTEGER},
+      </if>
+      <if test="archivesId != null">
+        archives_id = #{archivesId,jdbcType=INTEGER},
+      </if>
+      <if test="deletemark != null">
+        deleteMark = #{deletemark,jdbcType=INTEGER},
+      </if>
+      <if test="day != null">
+        day = #{day,jdbcType=INTEGER},
+      </if>
+      <if test="backClockMark != null">
+        back_clock_mark = #{backClockMark,jdbcType=INTEGER},
+      </if>
+      <if test="backAddr != null">
+        back_addr = #{backAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionplanId != null">
+        constructionPlan_id = #{constructionplanId,jdbcType=INTEGER},
+      </if>
+      <if test="signLati != null">
+        sign_lati = #{signLati,jdbcType=VARCHAR},
+      </if>
+      <if test="backLati != null">
+        back_lati = #{backLati,jdbcType=VARCHAR},
+      </if>
+      <if test="workload != null">
+        workLoad = #{workload,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="workTicketUrl != null">
+        work_ticket_url = #{workTicketUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="groundProtectUrl != null">
+        ground_protect_url = #{groundProtectUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="workMapUrl != null">
+        work_map_url = #{workMapUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where clock_id = #{clockId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywl.dto.GspwClock">
+    update gspw_clock
+    set sign_time = #{signTime,jdbcType=VARCHAR},
+      back_time = #{backTime,jdbcType=VARCHAR},
+      clock_addr = #{clockAddr,jdbcType=VARCHAR},
+      sign_clock_mark = #{signClockMark,jdbcType=INTEGER},
+      archives_id = #{archivesId,jdbcType=INTEGER},
+      deleteMark = #{deletemark,jdbcType=INTEGER},
+      day = #{day,jdbcType=INTEGER},
+      back_clock_mark = #{backClockMark,jdbcType=INTEGER},
+      back_addr = #{backAddr,jdbcType=VARCHAR},
+      constructionPlan_id = #{constructionplanId,jdbcType=INTEGER},
+      sign_lati = #{signLati,jdbcType=VARCHAR},
+      back_lati = #{backLati,jdbcType=VARCHAR},
+      workLoad = #{workload,jdbcType=VARCHAR},
+      path = #{path,jdbcType=VARCHAR},
+      work_ticket_url = #{workTicketUrl,jdbcType=VARCHAR},
+      ground_protect_url = #{groundProtectUrl,jdbcType=VARCHAR},
+      work_map_url = #{workMapUrl,jdbcType=VARCHAR}
+    where clock_id = #{clockId,jdbcType=INTEGER}
+  </update>
+</mapper>

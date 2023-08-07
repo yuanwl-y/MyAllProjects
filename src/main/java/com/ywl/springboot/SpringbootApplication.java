@@ -14,7 +14,7 @@ import org.springframework.cache.annotation.EnableCaching;
 public class SpringbootApplication {
 
 	public static void main(String[] args) {
-		System.out.println("启动成功111111111111111111");
+		System.out.println("启动成功");
 		SpringApplication.run(SpringbootApplication.class, args);
 	}
 

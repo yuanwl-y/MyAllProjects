@@ -10,9 +10,9 @@
         <setting name="useGeneratedKeys" value="true"/>
         <setting name="defaultExecutorType" value="REUSE"/>
     </settings>
-<!--    <typeAliases>-->
-<!--        <typeAlias alias="User" type="test.mybatis.User"/>-->
-<!--    </typeAliases>-->
+    <!--    <typeAliases>-->
+    <!--        <typeAlias alias="User" type="test.mybatis.User"/>-->
+    <!--    </typeAliases>-->
     <environments default="development">
         <environment id="development">
             <transactionManager type="jdbc"/>

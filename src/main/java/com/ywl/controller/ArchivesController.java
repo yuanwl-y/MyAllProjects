@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/all")
+@RequestMapping("/all11111111111111111")
 public class ArchivesController {
 
     @Resource

@@ -1,6 +1,6 @@
 package com.ywl.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class helloController {
-    @RequestMapping("/test")
+    @GetMapping("/test")
     public String test() {
         System.out.println("日志打印");
         System.out.println("日志提交git");

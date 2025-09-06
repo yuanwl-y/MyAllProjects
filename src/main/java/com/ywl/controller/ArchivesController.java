@@ -2,8 +2,7 @@ package com.ywl.controller;
 
 import com.ywl.dto.GspwArchives;
 import com.ywl.mapper.GspwArchivesMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,11 +16,10 @@ import javax.annotation.Resource;
 /**
  * 档案管理控制器
  */
+@Slf4j
 @RestController
 @RequestMapping("/gspwArchives")
 public class ArchivesController {
-
-    private static final Logger log = LoggerFactory.getLogger(ArchivesController.class);
 
     @Resource
     private GspwArchivesMapper gspwArchivesMapper;

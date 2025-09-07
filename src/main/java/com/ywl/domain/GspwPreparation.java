@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 施工计划签到前需要的施工蓝图，安全接地，安全交底，工作票照片路径
  * @TableName gspw_preparation
  */
 @TableName(value ="gspw_preparation")
 @Data
-public class GspwPreparation {
+public class GspwPreparation implements Serializable {
     /**
      * 主键id
      */
@@ -48,6 +50,9 @@ public class GspwPreparation {
      */
     @TableField(value = "preparation_jiedi")
     private String preparationJiedi;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -94,6 +99,7 @@ public class GspwPreparation {
         sb.append(", preparationLantu=").append(preparationLantu);
         sb.append(", preparationPiao=").append(preparationPiao);
         sb.append(", preparationJiedi=").append(preparationJiedi);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

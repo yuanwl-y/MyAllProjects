@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_load_device_type
  */
 @TableName(value ="gspw_load_device_type")
 @Data
-public class GspwLoadDeviceType {
+public class GspwLoadDeviceType implements Serializable {
     /**
      * 
      */
@@ -36,6 +38,9 @@ public class GspwLoadDeviceType {
      */
     @TableField(value = "device_state")
     private Integer deviceState;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -76,6 +81,7 @@ public class GspwLoadDeviceType {
         sb.append(", devicetypeName=").append(devicetypeName);
         sb.append(", deleteMark=").append(deleteMark);
         sb.append(", deviceState=").append(deviceState);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

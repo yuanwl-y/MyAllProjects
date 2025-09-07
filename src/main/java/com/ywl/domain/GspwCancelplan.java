@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_cancelplan
  */
 @TableName(value ="gspw_cancelplan")
 @Data
-public class GspwCancelplan {
+public class GspwCancelplan implements Serializable {
     /**
      * 主键
      */
@@ -109,6 +111,9 @@ public class GspwCancelplan {
     @TableField(value = "auditContext")
     private String auditcontext;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -184,6 +189,7 @@ public class GspwCancelplan {
         sb.append(", auditworkcode=").append(auditworkcode);
         sb.append(", auditresult=").append(auditresult);
         sb.append(", auditcontext=").append(auditcontext);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

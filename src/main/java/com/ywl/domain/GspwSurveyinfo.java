@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 现场勘查表
  * @TableName gspw_surveyinfo
  */
 @TableName(value ="gspw_surveyinfo")
 @Data
-public class GspwSurveyinfo {
+public class GspwSurveyinfo implements Serializable {
     /**
      * 主键
      */
@@ -85,6 +87,9 @@ public class GspwSurveyinfo {
     @TableField(value = "is_import")
     private Integer isImport;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -148,6 +153,7 @@ public class GspwSurveyinfo {
         sb.append(", workticketPhoto=").append(workticketPhoto);
         sb.append(", content=").append(content);
         sb.append(", isImport=").append(isImport);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

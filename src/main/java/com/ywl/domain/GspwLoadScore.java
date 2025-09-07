@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 承载力分析_打分详情表
  * @TableName gspw_load_score
  */
 @TableName(value ="gspw_load_score")
 @Data
-public class GspwLoadScore {
+public class GspwLoadScore implements Serializable {
     /**
      * 主键
      */
@@ -121,6 +123,9 @@ public class GspwLoadScore {
     @TableField(value = "select_state")
     private Integer selectState;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -202,6 +207,7 @@ public class GspwLoadScore {
         sb.append(", scoreOrgcitycode=").append(scoreOrgcitycode);
         sb.append(", deleteMark=").append(deleteMark);
         sb.append(", selectState=").append(selectState);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.time.LocalDateTime;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 日志记录表
@@ -13,7 +15,7 @@ import lombok.Data;
  */
 @TableName(value ="gspw_log")
 @Data
-public class GspwLog {
+public class GspwLog implements Serializable {
     /**
      * 主键
      */
@@ -61,6 +63,9 @@ public class GspwLog {
      */
     @TableField(value = "deleteMark")
     private Integer deletemark;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -113,6 +118,7 @@ public class GspwLog {
         sb.append(", archivesId=").append(archivesId);
         sb.append(", logDate=").append(logDate);
         sb.append(", deletemark=").append(deletemark);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

@@ -1,12 +1,12 @@
 package com.ywl.service;
 
-import com.ywl.domain.GspwLoadDeviceType;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ywl.domain.GspwLoadDeviceType;
 
 /**
 * @author Administrator
 * @description 针对表【gspw_load_device_type】的数据库操作Service
-* @createDate 2025-09-07 16:35:20
+* @createDate 2025-09-07 17:13:54
 */
 public interface GspwLoadDeviceTypeService extends IService<GspwLoadDeviceType> {
 

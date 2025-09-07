@@ -1,10 +1,11 @@
 package com.ywl.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 单位性质
@@ -12,7 +13,7 @@ import lombok.Data;
  */
 @TableName(value ="gspw_orgnature")
 @Data
-public class GspwOrgnature {
+public class GspwOrgnature implements Serializable {
     /**
      * 主键
      */
@@ -42,6 +43,9 @@ public class GspwOrgnature {
      */
     @TableField(value = "nature_code")
     private String natureCode;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -85,6 +89,7 @@ public class GspwOrgnature {
         sb.append(", natureName=").append(natureName);
         sb.append(", natureAbbreviation=").append(natureAbbreviation);
         sb.append(", natureCode=").append(natureCode);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

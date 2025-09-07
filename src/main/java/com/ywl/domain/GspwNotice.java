@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_notice
  */
 @TableName(value ="gspw_notice")
 @Data
-public class GspwNotice {
+public class GspwNotice implements Serializable {
     /**
      * 
      */
@@ -66,6 +68,9 @@ public class GspwNotice {
      */
     @TableField(value = "deletemark")
     private Integer deletemark;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -121,6 +126,7 @@ public class GspwNotice {
         sb.append(", userName=").append(userName);
         sb.append(", fileName=").append(fileName);
         sb.append(", deletemark=").append(deletemark);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

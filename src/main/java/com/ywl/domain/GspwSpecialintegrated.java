@@ -1,10 +1,11 @@
 package com.ywl.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 专项批次
@@ -12,7 +13,7 @@ import lombok.Data;
  */
 @TableName(value ="gspw_specialintegrated")
 @Data
-public class GspwSpecialintegrated {
+public class GspwSpecialintegrated implements Serializable {
     /**
      * 主键
      */
@@ -54,6 +55,9 @@ public class GspwSpecialintegrated {
      */
     @TableField(value = "deleteMark")
     private Integer deletemark;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -103,6 +107,7 @@ public class GspwSpecialintegrated {
         sb.append(", integratedId=").append(integratedId);
         sb.append(", specialRemark=").append(specialRemark);
         sb.append(", deletemark=").append(deletemark);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

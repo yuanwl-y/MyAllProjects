@@ -1,10 +1,10 @@
 package com.ywl.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 
@@ -12,7 +12,7 @@ import lombok.Data;
  */
 @TableName(value ="gspw_blacklist")
 @Data
-public class GspwBlacklist {
+public class GspwBlacklist implements Serializable {
     /**
      * 工号
      */
@@ -54,6 +54,9 @@ public class GspwBlacklist {
      */
     @TableField(value = "black_type")
     private Integer blackType;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -103,6 +106,7 @@ public class GspwBlacklist {
         sb.append(", reason=").append(reason);
         sb.append(", deletemark=").append(deletemark);
         sb.append(", blackType=").append(blackType);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

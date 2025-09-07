@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_score
  */
 @TableName(value ="gspw_score")
 @Data
-public class GspwScore {
+public class GspwScore implements Serializable {
     /**
      * 
      */
@@ -193,6 +195,9 @@ public class GspwScore {
     @TableField(value = "release_org_code")
     private String releaseOrgCode;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -310,6 +315,7 @@ public class GspwScore {
         sb.append(", breakPromiseGrade=").append(breakPromiseGrade);
         sb.append(", releaseOrgName=").append(releaseOrgName);
         sb.append(", releaseOrgCode=").append(releaseOrgCode);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

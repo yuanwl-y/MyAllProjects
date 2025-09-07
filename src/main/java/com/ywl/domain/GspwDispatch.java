@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.time.LocalDateTime;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 
@@ -13,7 +15,7 @@ import lombok.Data;
  */
 @TableName(value ="gspw_dispatch")
 @Data
-public class GspwDispatch {
+public class GspwDispatch implements Serializable {
     /**
      * 调度主键
      */
@@ -61,6 +63,9 @@ public class GspwDispatch {
      */
     @TableField(value = "dispatch_state")
     private Integer dispatchState;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -113,6 +118,7 @@ public class GspwDispatch {
         sb.append(", constructionplanId=").append(constructionplanId);
         sb.append(", dispatchType=").append(dispatchType);
         sb.append(", dispatchState=").append(dispatchState);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

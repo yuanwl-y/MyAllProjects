@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_post
  */
 @TableName(value ="gspw_post")
 @Data
-public class GspwPost {
+public class GspwPost implements Serializable {
     /**
      * 
      */
@@ -30,6 +32,9 @@ public class GspwPost {
      */
     @TableField(value = "number")
     private Integer number;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -67,6 +72,7 @@ public class GspwPost {
         sb.append(", id=").append(id);
         sb.append(", post=").append(post);
         sb.append(", number=").append(number);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

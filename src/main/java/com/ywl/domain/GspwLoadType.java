@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 承载力分析_打分类型表
  * @TableName gspw_load_type
  */
 @TableName(value ="gspw_load_type")
 @Data
-public class GspwLoadType {
+public class GspwLoadType implements Serializable {
     /**
      * 
      */
@@ -48,6 +50,9 @@ public class GspwLoadType {
      */
     @TableField(value = "delete_mark")
     private Integer deleteMark;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -94,6 +99,7 @@ public class GspwLoadType {
         sb.append(", typeMethod=").append(typeMethod);
         sb.append(", typeStandard=").append(typeStandard);
         sb.append(", deleteMark=").append(deleteMark);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

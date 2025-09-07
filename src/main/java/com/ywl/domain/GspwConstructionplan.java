@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.time.LocalDateTime;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 施工计划表
@@ -13,7 +15,7 @@ import lombok.Data;
  */
 @TableName(value ="gspw_constructionplan")
 @Data
-public class GspwConstructionplan {
+public class GspwConstructionplan implements Serializable {
     /**
      * 主键
      */
@@ -170,6 +172,9 @@ public class GspwConstructionplan {
     @TableField(value = "supervisor_orgname")
     private String supervisorOrgname;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -275,6 +280,7 @@ public class GspwConstructionplan {
         sb.append(", technician=").append(technician);
         sb.append(", supervisorOrgcode=").append(supervisorOrgcode);
         sb.append(", supervisorOrgname=").append(supervisorOrgname);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

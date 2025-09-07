@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_planchange_auit
  */
 @TableName(value ="gspw_planchange_auit")
 @Data
-public class GspwPlanchangeAuit {
+public class GspwPlanchangeAuit implements Serializable {
     /**
      * 变更审核主键
      */
@@ -103,6 +105,9 @@ public class GspwPlanchangeAuit {
     @TableField(value = "manager_audit_time")
     private String managerAuditTime;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -175,6 +180,7 @@ public class GspwPlanchangeAuit {
         sb.append(", reportTime=").append(reportTime);
         sb.append(", auditTime=").append(auditTime);
         sb.append(", managerAuditTime=").append(managerAuditTime);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

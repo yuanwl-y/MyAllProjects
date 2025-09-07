@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 承载力模块_评分发布时间表
  * @TableName gspw_load_time
  */
 @TableName(value ="gspw_load_time")
 @Data
-public class GspwLoadTime {
+public class GspwLoadTime implements Serializable {
     /**
      * 主键
      */
@@ -36,6 +38,9 @@ public class GspwLoadTime {
      */
     @TableField(value = "time_score_id")
     private Integer timeScoreId;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -76,6 +81,7 @@ public class GspwLoadTime {
         sb.append(", timeDetails=").append(timeDetails);
         sb.append(", timeOrgCode=").append(timeOrgCode);
         sb.append(", timeScoreId=").append(timeScoreId);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

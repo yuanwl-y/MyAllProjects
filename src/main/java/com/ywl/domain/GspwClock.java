@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 签到记录表
  * @TableName gspw_clock
  */
 @TableName(value ="gspw_clock")
 @Data
-public class GspwClock {
+public class GspwClock implements Serializable {
     /**
      * 主键
      */
@@ -121,6 +123,9 @@ public class GspwClock {
     @TableField(value = "work_map_url")
     private String workMapUrl;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -202,6 +207,7 @@ public class GspwClock {
         sb.append(", workTicketUrl=").append(workTicketUrl);
         sb.append(", groundProtectUrl=").append(groundProtectUrl);
         sb.append(", workMapUrl=").append(workMapUrl);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 承载力分析_设备详情表
  * @TableName gspw_load_device
  */
 @TableName(value ="gspw_load_device")
 @Data
-public class GspwLoadDevice {
+public class GspwLoadDevice implements Serializable {
     /**
      * 主键
      */
@@ -79,6 +81,9 @@ public class GspwLoadDevice {
     @TableField(value = "delete_mark")
     private Integer deleteMark;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -139,6 +144,7 @@ public class GspwLoadDevice {
         sb.append(", deviceUrl=").append(deviceUrl);
         sb.append(", deviceGrade=").append(deviceGrade);
         sb.append(", deleteMark=").append(deleteMark);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

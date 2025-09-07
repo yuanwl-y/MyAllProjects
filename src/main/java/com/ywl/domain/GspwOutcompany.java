@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_outcompany
  */
 @TableName(value ="gspw_outcompany")
 @Data
-public class GspwOutcompany {
+public class GspwOutcompany implements Serializable {
     /**
      * 
      */
@@ -60,6 +62,9 @@ public class GspwOutcompany {
      */
     @TableField(value = "license_photo_url")
     private String licensePhotoUrl;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -112,6 +117,7 @@ public class GspwOutcompany {
         sb.append(", subcompany=").append(subcompany);
         sb.append(", legalPerson=").append(legalPerson);
         sb.append(", licensePhotoUrl=").append(licensePhotoUrl);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

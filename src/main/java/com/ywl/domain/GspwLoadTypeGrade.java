@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 每一个小类的评分
  * @TableName gspw_load_type_grade
  */
 @TableName(value ="gspw_load_type_grade")
 @Data
-public class GspwLoadTypeGrade {
+public class GspwLoadTypeGrade implements Serializable {
     /**
      * 
      */
@@ -54,6 +56,9 @@ public class GspwLoadTypeGrade {
      */
     @TableField(value = "role")
     private String role;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -103,6 +108,7 @@ public class GspwLoadTypeGrade {
         sb.append(", gradeScoreId=").append(gradeScoreId);
         sb.append(", deleteMark=").append(deleteMark);
         sb.append(", role=").append(role);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

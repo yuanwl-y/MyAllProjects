@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_archives_record
  */
 @TableName(value ="gspw_archives_record")
 @Data
-public class GspwArchivesRecord {
+public class GspwArchivesRecord implements Serializable {
     /**
      * 
      */
@@ -97,6 +99,9 @@ public class GspwArchivesRecord {
     @TableField(value = "archives_id")
     private Integer archivesId;
 
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -166,6 +171,7 @@ public class GspwArchivesRecord {
         sb.append(", nowoutcompanyName=").append(nowoutcompanyName);
         sb.append(", nowoutcompanyCode=").append(nowoutcompanyCode);
         sb.append(", archivesId=").append(archivesId);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

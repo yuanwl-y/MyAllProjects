@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 综合计划表
  * @TableName gspw_integratedproject
  */
 @TableName(value ="gspw_integratedproject")
 @Data
-public class GspwIntegratedproject {
+public class GspwIntegratedproject implements Serializable {
     /**
      * 综合计划批次id
      */
@@ -48,6 +50,9 @@ public class GspwIntegratedproject {
      */
     @TableField(value = "deleteMark")
     private Integer deletemark;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -94,6 +99,7 @@ public class GspwIntegratedproject {
         sb.append(", integratedprojectState=").append(integratedprojectState);
         sb.append(", integratedprojectStick=").append(integratedprojectStick);
         sb.append(", deletemark=").append(deletemark);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

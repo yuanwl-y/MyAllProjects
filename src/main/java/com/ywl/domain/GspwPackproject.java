@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.time.LocalDateTime;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 项目打包表
@@ -13,7 +15,7 @@ import lombok.Data;
  */
 @TableName(value ="gspw_packproject")
 @Data
-public class GspwPackproject {
+public class GspwPackproject implements Serializable {
     /**
      * 主键
      */
@@ -67,6 +69,9 @@ public class GspwPackproject {
      */
     @TableField(value = "time")
     private LocalDateTime time;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -122,6 +127,7 @@ public class GspwPackproject {
         sb.append(", packprojectOrgcode=").append(packprojectOrgcode);
         sb.append(", deletemark=").append(deletemark);
         sb.append(", time=").append(time);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

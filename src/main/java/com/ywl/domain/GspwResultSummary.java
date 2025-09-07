@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 
  * @TableName gspw_result_summary
  */
 @TableName(value ="gspw_result_summary")
 @Data
-public class GspwResultSummary {
+public class GspwResultSummary implements Serializable {
     /**
      * 主键
      */
@@ -60,6 +62,9 @@ public class GspwResultSummary {
      */
     @TableField(value = "total_score")
     private Integer totalScore;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -112,6 +117,7 @@ public class GspwResultSummary {
         sb.append(", userName=").append(userName);
         sb.append(", userWorkcode=").append(userWorkcode);
         sb.append(", totalScore=").append(totalScore);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

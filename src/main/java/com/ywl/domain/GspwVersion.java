@@ -1,10 +1,11 @@
 package com.ywl.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 版本表
@@ -12,7 +13,7 @@ import lombok.Data;
  */
 @TableName(value ="gspw_version")
 @Data
-public class GspwVersion {
+public class GspwVersion implements Serializable {
     /**
      * 主键
      */
@@ -48,6 +49,9 @@ public class GspwVersion {
      */
     @TableField(value = "version_url")
     private String versionUrl;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -94,6 +98,7 @@ public class GspwVersion {
         sb.append(", versionForce=").append(versionForce);
         sb.append(", versionContext=").append(versionContext);
         sb.append(", versionUrl=").append(versionUrl);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }

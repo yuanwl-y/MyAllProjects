@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwPost;
-import com.ywl.dto.GspwPostExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwPost;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_post】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwPost
+*/
+public interface GspwPostMapper extends BaseMapper<GspwPost> {
 
-public interface GspwPostMapper {
-    long countByExample(GspwPostExample example);
-
-    int deleteByExample(GspwPostExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(GspwPost record);
-
-    int insertSelective(GspwPost record);
-
-    List<GspwPost> selectByExample(GspwPostExample example);
-
-    GspwPost selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") GspwPost record, @Param("example") GspwPostExample example);
-
-    int updateByExample(@Param("record") GspwPost record, @Param("example") GspwPostExample example);
-
-    int updateByPrimaryKeySelective(GspwPost record);
-
-    int updateByPrimaryKey(GspwPost record);
 }
+
+
+
+

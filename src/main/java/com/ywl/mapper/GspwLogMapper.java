@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwLog;
-import com.ywl.dto.GspwLogExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwLog;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_log(日志记录表)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwLog
+*/
+public interface GspwLogMapper extends BaseMapper<GspwLog> {
 
-public interface GspwLogMapper {
-    long countByExample(GspwLogExample example);
-
-    int deleteByExample(GspwLogExample example);
-
-    int deleteByPrimaryKey(Integer logId);
-
-    int insert(GspwLog record);
-
-    int insertSelective(GspwLog record);
-
-    List<GspwLog> selectByExample(GspwLogExample example);
-
-    GspwLog selectByPrimaryKey(Integer logId);
-
-    int updateByExampleSelective(@Param("record") GspwLog record, @Param("example") GspwLogExample example);
-
-    int updateByExample(@Param("record") GspwLog record, @Param("example") GspwLogExample example);
-
-    int updateByPrimaryKeySelective(GspwLog record);
-
-    int updateByPrimaryKey(GspwLog record);
 }
+
+
+
+

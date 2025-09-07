@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwCancelplan;
-import com.ywl.dto.GspwCancelplanExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwCancelplan;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_cancelplan】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwCancelplan
+*/
+public interface GspwCancelplanMapper extends BaseMapper<GspwCancelplan> {
 
-public interface GspwCancelplanMapper {
-    long countByExample(GspwCancelplanExample example);
-
-    int deleteByExample(GspwCancelplanExample example);
-
-    int deleteByPrimaryKey(Integer cancelplanid);
-
-    int insert(GspwCancelplan record);
-
-    int insertSelective(GspwCancelplan record);
-
-    List<GspwCancelplan> selectByExample(GspwCancelplanExample example);
-
-    GspwCancelplan selectByPrimaryKey(Integer cancelplanid);
-
-    int updateByExampleSelective(@Param("record") GspwCancelplan record, @Param("example") GspwCancelplanExample example);
-
-    int updateByExample(@Param("record") GspwCancelplan record, @Param("example") GspwCancelplanExample example);
-
-    int updateByPrimaryKeySelective(GspwCancelplan record);
-
-    int updateByPrimaryKey(GspwCancelplan record);
 }
+
+
+
+

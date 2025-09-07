@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwArchives;
-import com.ywl.dto.GspwArchivesExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwArchives;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_archives(人员档案表)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:19
+* @Entity com.ywl.domain.GspwArchives
+*/
+public interface GspwArchivesMapper extends BaseMapper<GspwArchives> {
 
-public interface GspwArchivesMapper {
-    long countByExample(GspwArchivesExample example);
-
-    int deleteByExample(GspwArchivesExample example);
-
-    int deleteByPrimaryKey(Integer archivesId);
-
-    int insert(GspwArchives record);
-
-    int insertSelective(GspwArchives record);
-
-    List<GspwArchives> selectByExample(GspwArchivesExample example);
-
-    GspwArchives selectByPrimaryKey(Integer archivesId);
-
-    int updateByExampleSelective(@Param("record") GspwArchives record, @Param("example") GspwArchivesExample example);
-
-    int updateByExample(@Param("record") GspwArchives record, @Param("example") GspwArchivesExample example);
-
-    int updateByPrimaryKeySelective(GspwArchives record);
-
-    int updateByPrimaryKey(GspwArchives record);
 }
+
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwDispatchMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwDispatch">
+            <id property="dispatchId" column="dispatch_id" jdbcType="INTEGER"/>
+            <result property="archivesId" column="archives_id" jdbcType="INTEGER"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+            <result property="deletemark" column="deletemark" jdbcType="INTEGER"/>
+            <result property="constructionplanId" column="constructionPlan_id" jdbcType="INTEGER"/>
+            <result property="dispatchType" column="dispatch_type" jdbcType="VARCHAR"/>
+            <result property="dispatchState" column="dispatch_state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        dispatch_id,archives_id,start_time,end_time,deletemark,constructionPlan_id,
+        dispatch_type,dispatch_state
+    </sql>
+</mapper>

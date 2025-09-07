@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwUserteam;
-import com.ywl.dto.GspwUserteamExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwUserteam;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_userteam】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwUserteam
+*/
+public interface GspwUserteamMapper extends BaseMapper<GspwUserteam> {
 
-public interface GspwUserteamMapper {
-    long countByExample(GspwUserteamExample example);
-
-    int deleteByExample(GspwUserteamExample example);
-
-    int deleteByPrimaryKey(Integer tid);
-
-    int insert(GspwUserteam record);
-
-    int insertSelective(GspwUserteam record);
-
-    List<GspwUserteam> selectByExample(GspwUserteamExample example);
-
-    GspwUserteam selectByPrimaryKey(Integer tid);
-
-    int updateByExampleSelective(@Param("record") GspwUserteam record, @Param("example") GspwUserteamExample example);
-
-    int updateByExample(@Param("record") GspwUserteam record, @Param("example") GspwUserteamExample example);
-
-    int updateByPrimaryKeySelective(GspwUserteam record);
-
-    int updateByPrimaryKey(GspwUserteam record);
 }
+
+
+
+

@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwOutcompany;
-import com.ywl.dto.GspwOutcompanyExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwOutcompany;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_outcompany】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwOutcompany
+*/
+public interface GspwOutcompanyMapper extends BaseMapper<GspwOutcompany> {
 
-public interface GspwOutcompanyMapper {
-    long countByExample(GspwOutcompanyExample example);
-
-    int deleteByExample(GspwOutcompanyExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(GspwOutcompany record);
-
-    int insertSelective(GspwOutcompany record);
-
-    List<GspwOutcompany> selectByExample(GspwOutcompanyExample example);
-
-    GspwOutcompany selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") GspwOutcompany record, @Param("example") GspwOutcompanyExample example);
-
-    int updateByExample(@Param("record") GspwOutcompany record, @Param("example") GspwOutcompanyExample example);
-
-    int updateByPrimaryKeySelective(GspwOutcompany record);
-
-    int updateByPrimaryKey(GspwOutcompany record);
 }
+
+
+
+

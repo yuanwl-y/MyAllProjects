@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwCancelplanMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwCancelplan">
+            <id property="cancelplanid" column="cancelPlanId" jdbcType="INTEGER"/>
+            <result property="starttime" column="startTime" jdbcType="VARCHAR"/>
+            <result property="endtime" column="endTime" jdbcType="VARCHAR"/>
+            <result property="cancelId" column="cancel_id" jdbcType="INTEGER"/>
+            <result property="cancelName" column="cancel_name" jdbcType="VARCHAR"/>
+            <result property="canceltime" column="cancelTime" jdbcType="VARCHAR"/>
+            <result property="cancelresult" column="cancelResult" jdbcType="VARCHAR"/>
+            <result property="constructionplanId" column="constructionPlan_id" jdbcType="INTEGER"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+            <result property="days" column="days" jdbcType="VARCHAR"/>
+            <result property="taskid" column="taskId" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="auditusername" column="auditUserName" jdbcType="VARCHAR"/>
+            <result property="auditworkcode" column="auditWorkCode" jdbcType="VARCHAR"/>
+            <result property="auditresult" column="auditResult" jdbcType="VARCHAR"/>
+            <result property="auditcontext" column="auditContext" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cancelPlanId,startTime,endTime,cancel_id,cancel_name,cancelTime,
+        cancelResult,constructionPlan_id,deleteMark,days,taskId,
+        status,auditUserName,auditWorkCode,auditResult,auditContext
+    </sql>
+</mapper>

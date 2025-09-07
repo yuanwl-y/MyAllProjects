@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwLoadTypeGradeMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwLoadTypeGrade">
+            <id property="gradeId" column="grade_id" jdbcType="INTEGER"/>
+            <result property="gradeVo" column="grade_vo" jdbcType="INTEGER"/>
+            <result property="gradeUrl" column="grade_url" jdbcType="VARCHAR"/>
+            <result property="gradeTypeId" column="grade_type_id" jdbcType="INTEGER"/>
+            <result property="gradeScoreId" column="grade_score_id" jdbcType="INTEGER"/>
+            <result property="deleteMark" column="delete_mark" jdbcType="INTEGER"/>
+            <result property="role" column="role" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        grade_id,grade_vo,grade_url,grade_type_id,grade_score_id,delete_mark,
+        role
+    </sql>
+</mapper>

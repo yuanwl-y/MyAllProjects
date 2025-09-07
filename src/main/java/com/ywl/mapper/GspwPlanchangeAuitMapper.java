@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwPlanchangeAuit;
-import com.ywl.dto.GspwPlanchangeAuitExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwPlanchangeAuit;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_planchange_auit】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwPlanchangeAuit
+*/
+public interface GspwPlanchangeAuitMapper extends BaseMapper<GspwPlanchangeAuit> {
 
-public interface GspwPlanchangeAuitMapper {
-    long countByExample(GspwPlanchangeAuitExample example);
-
-    int deleteByExample(GspwPlanchangeAuitExample example);
-
-    int deleteByPrimaryKey(Integer planchangeauidId);
-
-    int insert(GspwPlanchangeAuit record);
-
-    int insertSelective(GspwPlanchangeAuit record);
-
-    List<GspwPlanchangeAuit> selectByExample(GspwPlanchangeAuitExample example);
-
-    GspwPlanchangeAuit selectByPrimaryKey(Integer planchangeauidId);
-
-    int updateByExampleSelective(@Param("record") GspwPlanchangeAuit record, @Param("example") GspwPlanchangeAuitExample example);
-
-    int updateByExample(@Param("record") GspwPlanchangeAuit record, @Param("example") GspwPlanchangeAuitExample example);
-
-    int updateByPrimaryKeySelective(GspwPlanchangeAuit record);
-
-    int updateByPrimaryKey(GspwPlanchangeAuit record);
 }
+
+
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwSurveyinfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwSurveyinfo">
+            <id property="surveyinfoId" column="surveyInfo_id" jdbcType="INTEGER"/>
+            <result property="packprojectId" column="packProject_id" jdbcType="INTEGER"/>
+            <result property="monprojectId" column="monproject_id" jdbcType="VARCHAR"/>
+            <result property="surveyinfoWbs" column="surveyInfo_wbs" jdbcType="VARCHAR"/>
+            <result property="surveyinfoName" column="surveyInfo_name" jdbcType="VARCHAR"/>
+            <result property="surveyinfoPosition" column="surveyInfo_position" jdbcType="VARCHAR"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+            <result property="panoramicPhoto" column="panoramic_photo" jdbcType="VARCHAR"/>
+            <result property="disclosePhoto" column="disclose_photo" jdbcType="VARCHAR"/>
+            <result property="workticketPhoto" column="workTicket_photo" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="isImport" column="is_import" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        surveyInfo_id,packProject_id,monproject_id,surveyInfo_wbs,surveyInfo_name,surveyInfo_position,
+        deleteMark,panoramic_photo,disclose_photo,workTicket_photo,content,
+        is_import
+    </sql>
+</mapper>

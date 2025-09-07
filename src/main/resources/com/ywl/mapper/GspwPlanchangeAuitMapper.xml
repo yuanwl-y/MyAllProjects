@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwPlanchangeAuitMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwPlanchangeAuit">
+            <id property="planchangeauidId" column="planChangeAuid_id" jdbcType="INTEGER"/>
+            <result property="contentId" column="content_id" jdbcType="VARCHAR"/>
+            <result property="taskid" column="taskId" jdbcType="VARCHAR"/>
+            <result property="auditUsername" column="audit_username" jdbcType="VARCHAR"/>
+            <result property="auditWorknum" column="audit_worknum" jdbcType="VARCHAR"/>
+            <result property="auditResult" column="audit_result" jdbcType="VARCHAR"/>
+            <result property="auditContext" column="audit_context" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="auditManagername" column="audit_managername" jdbcType="VARCHAR"/>
+            <result property="auditManagerworknum" column="audit_managerworknum" jdbcType="VARCHAR"/>
+            <result property="auditManagerResult" column="audit_manager_result" jdbcType="VARCHAR"/>
+            <result property="auditManagerContext" column="audit_manager_context" jdbcType="VARCHAR"/>
+            <result property="reportTime" column="report_time" jdbcType="VARCHAR"/>
+            <result property="auditTime" column="audit_time" jdbcType="VARCHAR"/>
+            <result property="managerAuditTime" column="manager_audit_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        planChangeAuid_id,content_id,taskId,audit_username,audit_worknum,audit_result,
+        audit_context,status,audit_managername,audit_managerworknum,audit_manager_result,
+        audit_manager_context,report_time,audit_time,manager_audit_time
+    </sql>
+</mapper>

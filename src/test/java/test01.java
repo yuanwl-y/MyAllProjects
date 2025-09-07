@@ -1,4 +1,4 @@
-import com.ywl.dto.GspwArchives;
+import com.ywl.domain.GspwArchives;
 import com.ywl.mapper.GspwArchivesMapper;
 import com.ywl.util.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
@@ -11,7 +11,7 @@ public class test01 {
     @Test
     public void test011() {
         SqlSession session = MybatisUtil.getSqlSession();
-        GspwArchives archives = session.getMapper(GspwArchivesMapper.class).selectByPrimaryKey(1);
+        GspwArchives archives = session.getMapper(GspwArchivesMapper.class).selectById(1);
         System.out.println(archives);
     }
 }

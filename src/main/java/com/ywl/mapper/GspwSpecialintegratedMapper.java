@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwSpecialintegrated;
-import com.ywl.dto.GspwSpecialintegratedExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwSpecialintegrated;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_specialintegrated(专项批次)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwSpecialintegrated
+*/
+public interface GspwSpecialintegratedMapper extends BaseMapper<GspwSpecialintegrated> {
 
-public interface GspwSpecialintegratedMapper {
-    long countByExample(GspwSpecialintegratedExample example);
-
-    int deleteByExample(GspwSpecialintegratedExample example);
-
-    int deleteByPrimaryKey(String specialId);
-
-    int insert(GspwSpecialintegrated record);
-
-    int insertSelective(GspwSpecialintegrated record);
-
-    List<GspwSpecialintegrated> selectByExample(GspwSpecialintegratedExample example);
-
-    GspwSpecialintegrated selectByPrimaryKey(String specialId);
-
-    int updateByExampleSelective(@Param("record") GspwSpecialintegrated record, @Param("example") GspwSpecialintegratedExample example);
-
-    int updateByExample(@Param("record") GspwSpecialintegrated record, @Param("example") GspwSpecialintegratedExample example);
-
-    int updateByPrimaryKeySelective(GspwSpecialintegrated record);
-
-    int updateByPrimaryKey(GspwSpecialintegrated record);
 }
+
+
+
+

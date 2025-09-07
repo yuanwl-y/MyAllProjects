@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwArchivesMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwArchives">
+            <id property="archivesId" column="archives_id" jdbcType="INTEGER"/>
+            <result property="archivesName" column="archives_name" jdbcType="VARCHAR"/>
+            <result property="archivesSex" column="archives_sex" jdbcType="VARCHAR"/>
+            <result property="archivesAge" column="archives_age" jdbcType="VARCHAR"/>
+            <result property="userOrg" column="user_org" jdbcType="VARCHAR"/>
+            <result property="userOrgcode" column="user_orgCode" jdbcType="VARCHAR"/>
+            <result property="userDept" column="user_dept" jdbcType="VARCHAR"/>
+            <result property="userDeptcode" column="user_deptCode" jdbcType="VARCHAR"/>
+            <result property="userType" column="user_type" jdbcType="VARCHAR"/>
+            <result property="archivesCertificateType" column="archives_certificate_type" jdbcType="VARCHAR"/>
+            <result property="archivesCertificateNumber" column="archives_certificate_number" jdbcType="VARCHAR"/>
+            <result property="archivesTestState" column="archives_test_state" jdbcType="VARCHAR"/>
+            <result property="archivesInsuranceState" column="archives_insurance_state" jdbcType="VARCHAR"/>
+            <result property="archivesPhysicalState" column="archives_physical_state" jdbcType="VARCHAR"/>
+            <result property="archivesState" column="archives_state" jdbcType="VARCHAR"/>
+            <result property="archivesPhoto" column="archives_photo" jdbcType="VARCHAR"/>
+            <result property="archivesPhotoUr" column="archives_photo_ur" jdbcType="VARCHAR"/>
+            <result property="archivesCode" column="archives_code" jdbcType="VARCHAR"/>
+            <result property="userWorkcode" column="user_workCode" jdbcType="VARCHAR"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+            <result property="userPlace" column="user_place" jdbcType="VARCHAR"/>
+            <result property="userPlacecode" column="user_placeCode" jdbcType="VARCHAR"/>
+            <result property="userPost" column="user_post" jdbcType="VARCHAR"/>
+            <result property="userSubpackage" column="user_subpackage" jdbcType="VARCHAR"/>
+            <result property="departmentinfo" column="departMentInfo" jdbcType="VARCHAR"/>
+            <result property="userfirstorg" column="userFirstOrg" jdbcType="VARCHAR"/>
+            <result property="userfirstorgcode" column="userFirstOrgCode" jdbcType="VARCHAR"/>
+            <result property="idcard" column="idCard" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="isblacklist" column="isBlackList" jdbcType="INTEGER"/>
+            <result property="outcompanyid" column="outCompanyId" jdbcType="INTEGER"/>
+            <result property="userteamid" column="userTeamId" jdbcType="INTEGER"/>
+            <result property="createtime" column="createtime" jdbcType="VARCHAR"/>
+            <result property="idcardUrl" column="idcard_url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        archives_id,archives_name,archives_sex,archives_age,user_org,user_orgCode,
+        user_dept,user_deptCode,user_type,archives_certificate_type,archives_certificate_number,
+        archives_test_state,archives_insurance_state,archives_physical_state,archives_state,archives_photo,
+        archives_photo_ur,archives_code,user_workCode,deleteMark,user_place,
+        user_placeCode,user_post,user_subpackage,departMentInfo,userFirstOrg,
+        userFirstOrgCode,idCard,phone,isBlackList,outCompanyId,
+        userTeamId,createtime,idcard_url
+    </sql>
+</mapper>

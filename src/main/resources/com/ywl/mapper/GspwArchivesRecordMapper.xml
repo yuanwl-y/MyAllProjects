@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwArchivesRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwArchivesRecord">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="idCard" column="id_card" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+            <result property="updatePersonId" column="update_person_id" jdbcType="INTEGER"/>
+            <result property="updatePersonName" column="update_person_name" jdbcType="VARCHAR"/>
+            <result property="oldcompanyName" column="oldcompany_name" jdbcType="VARCHAR"/>
+            <result property="oldcompanyCode" column="oldcompany_code" jdbcType="VARCHAR"/>
+            <result property="nowcompanyName" column="nowcompany_name" jdbcType="VARCHAR"/>
+            <result property="nowcompanyCode" column="nowcompany_code" jdbcType="VARCHAR"/>
+            <result property="oldoutcompanyName" column="oldoutcompany_name" jdbcType="VARCHAR"/>
+            <result property="oldoutcompanyCode" column="oldoutcompany_code" jdbcType="VARCHAR"/>
+            <result property="nowoutcompanyName" column="nowoutcompany_name" jdbcType="VARCHAR"/>
+            <result property="nowoutcompanyCode" column="nowoutcompany_code" jdbcType="VARCHAR"/>
+            <result property="archivesId" column="archives_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,id_card,update_time,update_person_id,update_person_name,oldcompany_name,
+        oldcompany_code,nowcompany_name,nowcompany_code,oldoutcompany_name,oldoutcompany_code,
+        nowoutcompany_name,nowoutcompany_code,archives_id
+    </sql>
+</mapper>

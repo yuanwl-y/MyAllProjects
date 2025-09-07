@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwLoadDeviceType;
-import com.ywl.dto.GspwLoadDeviceTypeExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwLoadDeviceType;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_load_device_type】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwLoadDeviceType
+*/
+public interface GspwLoadDeviceTypeMapper extends BaseMapper<GspwLoadDeviceType> {
 
-public interface GspwLoadDeviceTypeMapper {
-    long countByExample(GspwLoadDeviceTypeExample example);
-
-    int deleteByExample(GspwLoadDeviceTypeExample example);
-
-    int deleteByPrimaryKey(Integer devicetypeId);
-
-    int insert(GspwLoadDeviceType record);
-
-    int insertSelective(GspwLoadDeviceType record);
-
-    List<GspwLoadDeviceType> selectByExample(GspwLoadDeviceTypeExample example);
-
-    GspwLoadDeviceType selectByPrimaryKey(Integer devicetypeId);
-
-    int updateByExampleSelective(@Param("record") GspwLoadDeviceType record, @Param("example") GspwLoadDeviceTypeExample example);
-
-    int updateByExample(@Param("record") GspwLoadDeviceType record, @Param("example") GspwLoadDeviceTypeExample example);
-
-    int updateByPrimaryKeySelective(GspwLoadDeviceType record);
-
-    int updateByPrimaryKey(GspwLoadDeviceType record);
 }
+
+
+
+

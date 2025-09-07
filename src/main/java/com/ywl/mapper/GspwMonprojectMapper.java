@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwMonproject;
-import com.ywl.dto.GspwMonprojectExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwMonproject;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_monproject(单体项目)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwMonproject
+*/
+public interface GspwMonprojectMapper extends BaseMapper<GspwMonproject> {
 
-public interface GspwMonprojectMapper {
-    long countByExample(GspwMonprojectExample example);
-
-    int deleteByExample(GspwMonprojectExample example);
-
-    int deleteByPrimaryKey(String monprojectId);
-
-    int insert(GspwMonproject record);
-
-    int insertSelective(GspwMonproject record);
-
-    List<GspwMonproject> selectByExample(GspwMonprojectExample example);
-
-    GspwMonproject selectByPrimaryKey(String monprojectId);
-
-    int updateByExampleSelective(@Param("record") GspwMonproject record, @Param("example") GspwMonprojectExample example);
-
-    int updateByExample(@Param("record") GspwMonproject record, @Param("example") GspwMonprojectExample example);
-
-    int updateByPrimaryKeySelective(GspwMonproject record);
-
-    int updateByPrimaryKey(GspwMonproject record);
 }
+
+
+
+

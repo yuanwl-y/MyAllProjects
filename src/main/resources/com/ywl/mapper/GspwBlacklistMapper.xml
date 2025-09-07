@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwBlacklistMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwBlacklist">
+            <result property="workcode" column="workCode" jdbcType="VARCHAR"/>
+            <result property="jointime" column="joinTime" jdbcType="VARCHAR"/>
+            <result property="accessname" column="accessName" jdbcType="VARCHAR"/>
+            <result property="accessworkcode" column="accessWorkCode" jdbcType="VARCHAR"/>
+            <result property="reason" column="reason" jdbcType="VARCHAR"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+            <result property="blackType" column="black_type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        workCode,joinTime,accessName,accessWorkCode,reason,deleteMark,
+        black_type
+    </sql>
+</mapper>

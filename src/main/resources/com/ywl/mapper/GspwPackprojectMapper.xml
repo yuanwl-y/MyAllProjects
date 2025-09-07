@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwPackprojectMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwPackproject">
+            <id property="packprojectId" column="packProject_id" jdbcType="INTEGER"/>
+            <result property="packprojectName" column="packProject_name" jdbcType="VARCHAR"/>
+            <result property="packprojectWbs" column="packProject_wbs" jdbcType="VARCHAR"/>
+            <result property="packprojectNumber" column="packProject_number" jdbcType="VARCHAR"/>
+            <result property="integratedprojectId" column="integratedProject_id" jdbcType="INTEGER"/>
+            <result property="packprojectOrg" column="packProject_org" jdbcType="VARCHAR"/>
+            <result property="packprojectOrgcode" column="packProject_orgCode" jdbcType="VARCHAR"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+            <result property="time" column="time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        packProject_id,packProject_name,packProject_wbs,packProject_number,integratedProject_id,packProject_org,
+        packProject_orgCode,deleteMark,time
+    </sql>
+</mapper>

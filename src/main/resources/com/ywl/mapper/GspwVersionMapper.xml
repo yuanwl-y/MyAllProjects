@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwVersionMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwVersion">
+            <id property="versionId" column="version_id" jdbcType="INTEGER"/>
+            <result property="versionNo" column="version_no" jdbcType="VARCHAR"/>
+            <result property="versionName" column="version_name" jdbcType="VARCHAR"/>
+            <result property="versionForce" column="version_force" jdbcType="INTEGER"/>
+            <result property="versionContext" column="version_context" jdbcType="VARCHAR"/>
+            <result property="versionUrl" column="version_url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        version_id,version_no,version_name,version_force,version_context,version_url
+    </sql>
+</mapper>

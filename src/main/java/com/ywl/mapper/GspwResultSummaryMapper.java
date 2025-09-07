@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwResultSummary;
-import com.ywl.dto.GspwResultSummaryExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwResultSummary;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_result_summary】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwResultSummary
+*/
+public interface GspwResultSummaryMapper extends BaseMapper<GspwResultSummary> {
 
-public interface GspwResultSummaryMapper {
-    long countByExample(GspwResultSummaryExample example);
-
-    int deleteByExample(GspwResultSummaryExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(GspwResultSummary record);
-
-    int insertSelective(GspwResultSummary record);
-
-    List<GspwResultSummary> selectByExample(GspwResultSummaryExample example);
-
-    GspwResultSummary selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") GspwResultSummary record, @Param("example") GspwResultSummaryExample example);
-
-    int updateByExample(@Param("record") GspwResultSummary record, @Param("example") GspwResultSummaryExample example);
-
-    int updateByPrimaryKeySelective(GspwResultSummary record);
-
-    int updateByPrimaryKey(GspwResultSummary record);
 }
+
+
+
+

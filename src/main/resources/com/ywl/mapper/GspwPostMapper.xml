@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwPostMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwPost">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="post" column="post" jdbcType="VARCHAR"/>
+            <result property="number" column="number" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,post,number
+    </sql>
+</mapper>

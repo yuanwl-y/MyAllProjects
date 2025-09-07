@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwIntegratedprojectMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwIntegratedproject">
+            <id property="integratedprojectId" column="integratedProject_id" jdbcType="INTEGER"/>
+            <result property="integratedprojectName" column="integratedProject_name" jdbcType="VARCHAR"/>
+            <result property="integratedprojectYear" column="integratedProject_year" jdbcType="VARCHAR"/>
+            <result property="integratedprojectState" column="integratedProject_state" jdbcType="INTEGER"/>
+            <result property="integratedprojectStick" column="integratedProject_stick" jdbcType="INTEGER"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        integratedProject_id,integratedProject_name,integratedProject_year,integratedProject_state,integratedProject_stick,deleteMark
+    </sql>
+</mapper>

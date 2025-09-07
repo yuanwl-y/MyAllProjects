@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwPreparationMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwPreparation">
+            <id property="preparationId" column="preparation_id" jdbcType="INTEGER"/>
+            <result property="preparationConstructionplanId" column="preparation_constructionPlan_id" jdbcType="INTEGER"/>
+            <result property="preparationJiaodi" column="preparation_jiaodi" jdbcType="VARCHAR"/>
+            <result property="preparationLantu" column="preparation_lantu" jdbcType="VARCHAR"/>
+            <result property="preparationPiao" column="preparation_piao" jdbcType="VARCHAR"/>
+            <result property="preparationJiedi" column="preparation_jiedi" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        preparation_id,preparation_constructionPlan_id,preparation_jiaodi,preparation_lantu,preparation_piao,preparation_jiedi
+    </sql>
+</mapper>

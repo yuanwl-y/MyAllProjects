@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwConstructionplan;
-import com.ywl.dto.GspwConstructionplanExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwConstructionplan;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_constructionplan(施工计划表)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwConstructionplan
+*/
+public interface GspwConstructionplanMapper extends BaseMapper<GspwConstructionplan> {
 
-public interface GspwConstructionplanMapper {
-    long countByExample(GspwConstructionplanExample example);
-
-    int deleteByExample(GspwConstructionplanExample example);
-
-    int deleteByPrimaryKey(Integer constructionplanId);
-
-    int insert(GspwConstructionplan record);
-
-    int insertSelective(GspwConstructionplan record);
-
-    List<GspwConstructionplan> selectByExample(GspwConstructionplanExample example);
-
-    GspwConstructionplan selectByPrimaryKey(Integer constructionplanId);
-
-    int updateByExampleSelective(@Param("record") GspwConstructionplan record, @Param("example") GspwConstructionplanExample example);
-
-    int updateByExample(@Param("record") GspwConstructionplan record, @Param("example") GspwConstructionplanExample example);
-
-    int updateByPrimaryKeySelective(GspwConstructionplan record);
-
-    int updateByPrimaryKey(GspwConstructionplan record);
 }
+
+
+
+

@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwNotice;
-import com.ywl.dto.GspwNoticeExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwNotice;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_notice】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwNotice
+*/
+public interface GspwNoticeMapper extends BaseMapper<GspwNotice> {
 
-public interface GspwNoticeMapper {
-    long countByExample(GspwNoticeExample example);
-
-    int deleteByExample(GspwNoticeExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(GspwNotice record);
-
-    int insertSelective(GspwNotice record);
-
-    List<GspwNotice> selectByExample(GspwNoticeExample example);
-
-    GspwNotice selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") GspwNotice record, @Param("example") GspwNoticeExample example);
-
-    int updateByExample(@Param("record") GspwNotice record, @Param("example") GspwNoticeExample example);
-
-    int updateByPrimaryKeySelective(GspwNotice record);
-
-    int updateByPrimaryKey(GspwNotice record);
 }
+
+
+
+

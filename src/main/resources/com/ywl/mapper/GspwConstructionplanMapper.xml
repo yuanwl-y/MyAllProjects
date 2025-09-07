@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwConstructionplanMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwConstructionplan">
+            <id property="constructionplanId" column="constructionPlan_id" jdbcType="INTEGER"/>
+            <result property="surveyinfoId" column="surveyInfo_id" jdbcType="INTEGER"/>
+            <result property="constructionplanContent" column="constructionPlan_content" jdbcType="VARCHAR"/>
+            <result property="constructionplanStarttime" column="constructionPlan_startTime" jdbcType="TIMESTAMP"/>
+            <result property="constructionplanEndtime" column="constructionPlan_endTime" jdbcType="TIMESTAMP"/>
+            <result property="archivesName" column="archives_name" jdbcType="VARCHAR"/>
+            <result property="archivesId" column="archives_id" jdbcType="INTEGER"/>
+            <result property="constructionplanAddr" column="constructionPlan_addr" jdbcType="VARCHAR"/>
+            <result property="constructionplanNumber" column="constructionPlan_number" jdbcType="INTEGER"/>
+            <result property="taskid" column="taskid" jdbcType="VARCHAR"/>
+            <result property="constructionplanState" column="constructionPlan_state" jdbcType="VARCHAR"/>
+            <result property="constructionplanKind" column="constructionPlan_kind" jdbcType="INTEGER"/>
+            <result property="flowauditStartdate" column="flowaudit_startDate" jdbcType="TIMESTAMP"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+            <result property="superVisor" column="super_visor" jdbcType="INTEGER"/>
+            <result property="supervisorName" column="supervisor_name" jdbcType="VARCHAR"/>
+            <result property="peopleIds" column="people_ids" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updateState" column="update_state" jdbcType="INTEGER"/>
+            <result property="safetyofficerName" column="safetyOfficer_name" jdbcType="VARCHAR"/>
+            <result property="technicianName" column="technician_name" jdbcType="VARCHAR"/>
+            <result property="safetyOfficer" column="safety_officer" jdbcType="INTEGER"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="technician" column="technician" jdbcType="INTEGER"/>
+            <result property="supervisorOrgcode" column="supervisor_orgcode" jdbcType="VARCHAR"/>
+            <result property="supervisorOrgname" column="supervisor_orgname" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        constructionPlan_id,surveyInfo_id,constructionPlan_content,constructionPlan_startTime,constructionPlan_endTime,archives_name,
+        archives_id,constructionPlan_addr,constructionPlan_number,taskid,constructionPlan_state,
+        constructionPlan_kind,flowaudit_startDate,deleteMark,super_visor,supervisor_name,
+        people_ids,update_time,update_state,safetyOfficer_name,technician_name,
+        safety_officer,create_date,technician,supervisor_orgcode,supervisor_orgname
+    </sql>
+</mapper>

@@ -1,23 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwBlacklist;
-import com.ywl.dto.GspwBlacklistExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwBlacklist;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_blacklist】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwBlacklist
+*/
+public interface GspwBlacklistMapper extends BaseMapper<GspwBlacklist> {
 
-public interface GspwBlacklistMapper {
-    long countByExample(GspwBlacklistExample example);
-
-    int deleteByExample(GspwBlacklistExample example);
-
-    int insert(GspwBlacklist record);
-
-    int insertSelective(GspwBlacklist record);
-
-    List<GspwBlacklist> selectByExample(GspwBlacklistExample example);
-
-    int updateByExampleSelective(@Param("record") GspwBlacklist record, @Param("example") GspwBlacklistExample example);
-
-    int updateByExample(@Param("record") GspwBlacklist record, @Param("example") GspwBlacklistExample example);
 }
+
+
+
+

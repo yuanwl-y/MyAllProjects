@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwVersion;
-import com.ywl.dto.GspwVersionExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwVersion;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_version(版本表)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwVersion
+*/
+public interface GspwVersionMapper extends BaseMapper<GspwVersion> {
 
-public interface GspwVersionMapper {
-    long countByExample(GspwVersionExample example);
-
-    int deleteByExample(GspwVersionExample example);
-
-    int deleteByPrimaryKey(Integer versionId);
-
-    int insert(GspwVersion record);
-
-    int insertSelective(GspwVersion record);
-
-    List<GspwVersion> selectByExample(GspwVersionExample example);
-
-    GspwVersion selectByPrimaryKey(Integer versionId);
-
-    int updateByExampleSelective(@Param("record") GspwVersion record, @Param("example") GspwVersionExample example);
-
-    int updateByExample(@Param("record") GspwVersion record, @Param("example") GspwVersionExample example);
-
-    int updateByPrimaryKeySelective(GspwVersion record);
-
-    int updateByPrimaryKey(GspwVersion record);
 }
+
+
+
+

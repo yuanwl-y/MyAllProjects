@@ -1,6 +1,6 @@
 package com.ywl.controller;
 
-import com.ywl.dto.GspwArchives;
+import com.ywl.domain.GspwArchives;
 import com.ywl.mapper.GspwArchivesMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -36,11 +36,11 @@ public class ArchivesController {
     @GetMapping("/getArchives/{archivesId}")
     @Operation(summary = "根据ID获取档案信息", description = "通过档案ID查询档案详细信息")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "查询成功",
-            content = @Content(mediaType = "application/json",
-                schema = @Schema(implementation = GspwArchives.class))),
-        @ApiResponse(responseCode = "400", description = "参数不合法"),
-        @ApiResponse(responseCode = "500", description = "系统异常")
+            @ApiResponse(responseCode = "200", description = "查询成功",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = GspwArchives.class))),
+            @ApiResponse(responseCode = "400", description = "参数不合法"),
+            @ApiResponse(responseCode = "500", description = "系统异常")
     })
     public GspwArchives getArchives(
             @Parameter(name = "archivesId", description = "档案ID", example = "1", required = true)
@@ -53,7 +53,7 @@ public class ArchivesController {
         }
 
         try {
-            GspwArchives gspwArchives = gspwArchivesMapper.selectByPrimaryKey(archivesId);
+            GspwArchives gspwArchives = gspwArchivesMapper.selectById(archivesId);
             if (!ObjectUtils.isEmpty(gspwArchives)) {
                 return gspwArchives;
             }
@@ -73,9 +73,9 @@ public class ArchivesController {
     @PostMapping("/updateArchives")
     @Operation(summary = "更新档案信息", description = "更新指定档案的详细信息")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "更新成功"),
-        @ApiResponse(responseCode = "400", description = "参数不合法"),
-        @ApiResponse(responseCode = "500", description = "系统异常")
+            @ApiResponse(responseCode = "200", description = "更新成功"),
+            @ApiResponse(responseCode = "400", description = "参数不合法"),
+            @ApiResponse(responseCode = "500", description = "系统异常")
     })
     public boolean updateArchives(
             @Parameter(name = "gspwArchives", description = "档案信息对象", required = true)
@@ -89,14 +89,14 @@ public class ArchivesController {
 
         try {
             // 检查档案是否存在
-            GspwArchives existingArchives = gspwArchivesMapper.selectByPrimaryKey(gspwArchives.getArchivesId());
+            GspwArchives existingArchives = gspwArchivesMapper.selectById(gspwArchives.getArchivesId());
             if (ObjectUtils.isEmpty(existingArchives)) {
                 log.warn("尝试更新不存在的档案，ID: {}", gspwArchives.getArchivesId());
                 return false;
             }
 
             // 执行更新操作
-            int result = gspwArchivesMapper.updateByPrimaryKey(gspwArchives);
+            int result = gspwArchivesMapper.updateById(gspwArchives);
             if (result > 0) {
                 log.info("档案更新成功，ID: {}", gspwArchives.getArchivesId());
                 return true;

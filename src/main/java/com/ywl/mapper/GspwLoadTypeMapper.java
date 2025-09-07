@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwLoadType;
-import com.ywl.dto.GspwLoadTypeExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwLoadType;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_load_type(承载力分析_打分类型表)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwLoadType
+*/
+public interface GspwLoadTypeMapper extends BaseMapper<GspwLoadType> {
 
-public interface GspwLoadTypeMapper {
-    long countByExample(GspwLoadTypeExample example);
-
-    int deleteByExample(GspwLoadTypeExample example);
-
-    int deleteByPrimaryKey(Integer typeId);
-
-    int insert(GspwLoadType record);
-
-    int insertSelective(GspwLoadType record);
-
-    List<GspwLoadType> selectByExample(GspwLoadTypeExample example);
-
-    GspwLoadType selectByPrimaryKey(Integer typeId);
-
-    int updateByExampleSelective(@Param("record") GspwLoadType record, @Param("example") GspwLoadTypeExample example);
-
-    int updateByExample(@Param("record") GspwLoadType record, @Param("example") GspwLoadTypeExample example);
-
-    int updateByPrimaryKeySelective(GspwLoadType record);
-
-    int updateByPrimaryKey(GspwLoadType record);
 }
+
+
+
+

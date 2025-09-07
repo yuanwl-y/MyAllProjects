@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwOrgnature;
-import com.ywl.dto.GspwOrgnatureExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwOrgnature;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_orgnature(单位性质)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwOrgnature
+*/
+public interface GspwOrgnatureMapper extends BaseMapper<GspwOrgnature> {
 
-public interface GspwOrgnatureMapper {
-    long countByExample(GspwOrgnatureExample example);
-
-    int deleteByExample(GspwOrgnatureExample example);
-
-    int deleteByPrimaryKey(Integer natureId);
-
-    int insert(GspwOrgnature record);
-
-    int insertSelective(GspwOrgnature record);
-
-    List<GspwOrgnature> selectByExample(GspwOrgnatureExample example);
-
-    GspwOrgnature selectByPrimaryKey(Integer natureId);
-
-    int updateByExampleSelective(@Param("record") GspwOrgnature record, @Param("example") GspwOrgnatureExample example);
-
-    int updateByExample(@Param("record") GspwOrgnature record, @Param("example") GspwOrgnatureExample example);
-
-    int updateByPrimaryKeySelective(GspwOrgnature record);
-
-    int updateByPrimaryKey(GspwOrgnature record);
 }
+
+
+
+

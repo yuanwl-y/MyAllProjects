@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwConstructionplanFlowaudit;
-import com.ywl.dto.GspwConstructionplanFlowauditExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwConstructionplanFlowaudit;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_constructionplan_flowaudit(施工计划审核表)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwConstructionplanFlowaudit
+*/
+public interface GspwConstructionplanFlowauditMapper extends BaseMapper<GspwConstructionplanFlowaudit> {
 
-public interface GspwConstructionplanFlowauditMapper {
-    long countByExample(GspwConstructionplanFlowauditExample example);
-
-    int deleteByExample(GspwConstructionplanFlowauditExample example);
-
-    int deleteByPrimaryKey(Integer constructionplanFlowauditId);
-
-    int insert(GspwConstructionplanFlowaudit record);
-
-    int insertSelective(GspwConstructionplanFlowaudit record);
-
-    List<GspwConstructionplanFlowaudit> selectByExample(GspwConstructionplanFlowauditExample example);
-
-    GspwConstructionplanFlowaudit selectByPrimaryKey(Integer constructionplanFlowauditId);
-
-    int updateByExampleSelective(@Param("record") GspwConstructionplanFlowaudit record, @Param("example") GspwConstructionplanFlowauditExample example);
-
-    int updateByExample(@Param("record") GspwConstructionplanFlowaudit record, @Param("example") GspwConstructionplanFlowauditExample example);
-
-    int updateByPrimaryKeySelective(GspwConstructionplanFlowaudit record);
-
-    int updateByPrimaryKey(GspwConstructionplanFlowaudit record);
 }
+
+
+
+

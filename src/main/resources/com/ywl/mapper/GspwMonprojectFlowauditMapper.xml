@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwMonprojectFlowauditMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwMonprojectFlowaudit">
+            <id property="monprojectFlowauditId" column="monproject_flowaudit_id" jdbcType="VARCHAR"/>
+            <result property="monprojectId" column="monproject_id" jdbcType="VARCHAR"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="userDeptcode" column="user_deptCode" jdbcType="VARCHAR"/>
+            <result property="userDept" column="user_dept" jdbcType="VARCHAR"/>
+            <result property="userWorkcode" column="user_workCode" jdbcType="VARCHAR"/>
+            <result property="userOrgcode" column="user_orgCode" jdbcType="VARCHAR"/>
+            <result property="userOrg" column="user_org" jdbcType="VARCHAR"/>
+            <result property="monprojectFlowauditDate" column="monproject_flowaudit_date" jdbcType="TIMESTAMP"/>
+            <result property="monprojectFlowauditContext" column="monproject_flowaudit_context" jdbcType="VARCHAR"/>
+            <result property="monprojectFlowauditResult" column="monproject_flowaudit_result" jdbcType="VARCHAR"/>
+            <result property="taskid" column="taskid" jdbcType="VARCHAR"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        monproject_flowaudit_id,monproject_id,user_name,user_deptCode,user_dept,user_workCode,
+        user_orgCode,user_org,monproject_flowaudit_date,monproject_flowaudit_context,monproject_flowaudit_result,
+        taskid,deleteMark
+    </sql>
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwScoreMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwScore">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userWorknumber" column="user_worknumber" jdbcType="VARCHAR"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="orgName" column="org_name" jdbcType="VARCHAR"/>
+            <result property="orgCode" column="org_code" jdbcType="VARCHAR"/>
+            <result property="buildDepartmentGrade" column="build_department_grade" jdbcType="INTEGER"/>
+            <result property="workGrade" column="work_grade" jdbcType="INTEGER"/>
+            <result property="payGrade" column="pay_grade" jdbcType="INTEGER"/>
+            <result property="materialGrade" column="material_grade" jdbcType="INTEGER"/>
+            <result property="wasteMaterialGrade" column="waste_material_grade" jdbcType="INTEGER"/>
+            <result property="projectSafeGrade" column="project_safe_grade" jdbcType="INTEGER"/>
+            <result property="projectQualityGrade" column="project_quality_grade" jdbcType="INTEGER"/>
+            <result property="projectProgressGrade" column="project_progress_grade" jdbcType="INTEGER"/>
+            <result property="systemApplicationGrade" column="system_application_grade" jdbcType="INTEGER"/>
+            <result property="quantityGrade" column="quantity_grade" jdbcType="INTEGER"/>
+            <result property="finishGrade" column="finish_grade" jdbcType="INTEGER"/>
+            <result property="dataGrade" column="data_grade" jdbcType="INTEGER"/>
+            <result property="companyGrade" column="company_grade" jdbcType="INTEGER"/>
+            <result property="engineerGrade" column="engineer_grade" jdbcType="INTEGER"/>
+            <result property="managerGrade" column="manager_grade" jdbcType="INTEGER"/>
+            <result property="resultGrade" column="result_grade" jdbcType="INTEGER"/>
+            <result property="personGrade" column="person_grade" jdbcType="INTEGER"/>
+            <result property="recordGrade" column="record_grade" jdbcType="INTEGER"/>
+            <result property="projectManagerGrade" column="project_manager_grade" jdbcType="INTEGER"/>
+            <result property="prizeGrade" column="prize_grade" jdbcType="INTEGER"/>
+            <result property="breakRulesGrade" column="break_rules_grade" jdbcType="INTEGER"/>
+            <result property="defaultGrade" column="default_grade" jdbcType="INTEGER"/>
+            <result property="breakPromiseGrade" column="break_promise_grade" jdbcType="INTEGER"/>
+            <result property="releaseOrgName" column="release_org_name" jdbcType="VARCHAR"/>
+            <result property="releaseOrgCode" column="release_org_code" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_worknumber,user_name,org_name,org_code,build_department_grade,
+        work_grade,pay_grade,material_grade,waste_material_grade,project_safe_grade,
+        project_quality_grade,project_progress_grade,system_application_grade,quantity_grade,finish_grade,
+        data_grade,company_grade,engineer_grade,manager_grade,result_grade,
+        person_grade,record_grade,project_manager_grade,prize_grade,break_rules_grade,
+        default_grade,break_promise_grade,release_org_name,release_org_code
+    </sql>
+</mapper>

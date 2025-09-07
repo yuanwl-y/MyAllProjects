@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwMonprojectMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwMonproject">
+            <id property="monprojectId" column="monproject_id" jdbcType="VARCHAR"/>
+            <result property="monprojectName" column="monproject_name" jdbcType="VARCHAR"/>
+            <result property="monprojectWbs" column="monproject_wbs" jdbcType="VARCHAR"/>
+            <result property="projectWbs" column="project_wbs" jdbcType="VARCHAR"/>
+            <result property="monprojectInvestment" column="monproject_investment" jdbcType="VARCHAR"/>
+            <result property="monprojectContext" column="monproject_context" jdbcType="VARCHAR"/>
+            <result property="monprojectDate" column="monproject_date" jdbcType="TIMESTAMP"/>
+            <result property="monprojectFlowauditUserworkcode" column="monproject_flowaudit_userWorkCode" jdbcType="VARCHAR"/>
+            <result property="monprojectFlowauditUsername" column="monproject_flowaudit_userName" jdbcType="VARCHAR"/>
+            <result property="monprojectReportUsername" column="monproject_report_userName" jdbcType="VARCHAR"/>
+            <result property="monprojectReportUserworkcode" column="monproject_report_userWorkCode" jdbcType="VARCHAR"/>
+            <result property="monprojectIsuse" column="monproject_isUse" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="taskid" column="taskid" jdbcType="VARCHAR"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        monproject_id,monproject_name,monproject_wbs,project_wbs,monproject_investment,monproject_context,
+        monproject_date,monproject_flowaudit_userWorkCode,monproject_flowaudit_userName,monproject_report_userName,monproject_report_userWorkCode,
+        monproject_isUse,status,taskid,deleteMark
+    </sql>
+</mapper>

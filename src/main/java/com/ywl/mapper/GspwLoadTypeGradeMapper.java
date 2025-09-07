@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwLoadTypeGrade;
-import com.ywl.dto.GspwLoadTypeGradeExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwLoadTypeGrade;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_load_type_grade(每一个小类的评分)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwLoadTypeGrade
+*/
+public interface GspwLoadTypeGradeMapper extends BaseMapper<GspwLoadTypeGrade> {
 
-public interface GspwLoadTypeGradeMapper {
-    long countByExample(GspwLoadTypeGradeExample example);
-
-    int deleteByExample(GspwLoadTypeGradeExample example);
-
-    int deleteByPrimaryKey(Integer gradeId);
-
-    int insert(GspwLoadTypeGrade record);
-
-    int insertSelective(GspwLoadTypeGrade record);
-
-    List<GspwLoadTypeGrade> selectByExample(GspwLoadTypeGradeExample example);
-
-    GspwLoadTypeGrade selectByPrimaryKey(Integer gradeId);
-
-    int updateByExampleSelective(@Param("record") GspwLoadTypeGrade record, @Param("example") GspwLoadTypeGradeExample example);
-
-    int updateByExample(@Param("record") GspwLoadTypeGrade record, @Param("example") GspwLoadTypeGradeExample example);
-
-    int updateByPrimaryKeySelective(GspwLoadTypeGrade record);
-
-    int updateByPrimaryKey(GspwLoadTypeGrade record);
 }
+
+
+
+

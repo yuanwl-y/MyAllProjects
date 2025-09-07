@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwNoticeMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwNotice">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="filePath" column="file_path" jdbcType="VARCHAR"/>
+            <result property="isCase" column="is_case" jdbcType="INTEGER"/>
+            <result property="userOrg" column="user_org" jdbcType="VARCHAR"/>
+            <result property="userOrgCode" column="user_org_code" jdbcType="VARCHAR"/>
+            <result property="userWorkcode" column="user_workcode" jdbcType="VARCHAR"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
+            <result property="deletemark" column="deletemark" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,file_path,is_case,user_org,user_org_code,user_workcode,
+        user_name,file_name,deletemark
+    </sql>
+</mapper>

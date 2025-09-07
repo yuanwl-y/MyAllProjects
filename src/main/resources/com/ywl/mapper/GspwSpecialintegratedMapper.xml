@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwSpecialintegratedMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwSpecialintegrated">
+            <id property="specialId" column="special_id" jdbcType="VARCHAR"/>
+            <result property="specialName" column="special_name" jdbcType="VARCHAR"/>
+            <result property="specialYear" column="special_year" jdbcType="VARCHAR"/>
+            <result property="specialStick" column="special_stick" jdbcType="INTEGER"/>
+            <result property="integratedId" column="integrated_id" jdbcType="VARCHAR"/>
+            <result property="specialRemark" column="special_remark" jdbcType="VARCHAR"/>
+            <result property="deletemark" column="deleteMark" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        special_id,special_name,special_year,special_stick,integrated_id,special_remark,
+        deleteMark
+    </sql>
+</mapper>

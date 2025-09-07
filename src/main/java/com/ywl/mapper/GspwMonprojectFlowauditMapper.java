@@ -1,31 +1,18 @@
 package com.ywl.mapper;
 
-import com.ywl.dto.GspwMonprojectFlowaudit;
-import com.ywl.dto.GspwMonprojectFlowauditExample;
-import org.apache.ibatis.annotations.Param;
+import com.ywl.domain.GspwMonprojectFlowaudit;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+* @author Administrator
+* @description 针对表【gspw_monproject_flowaudit(单体项目审核表)】的数据库操作Mapper
+* @createDate 2025-09-07 16:35:20
+* @Entity com.ywl.domain.GspwMonprojectFlowaudit
+*/
+public interface GspwMonprojectFlowauditMapper extends BaseMapper<GspwMonprojectFlowaudit> {
 
-public interface GspwMonprojectFlowauditMapper {
-    long countByExample(GspwMonprojectFlowauditExample example);
-
-    int deleteByExample(GspwMonprojectFlowauditExample example);
-
-    int deleteByPrimaryKey(String monprojectFlowauditId);
-
-    int insert(GspwMonprojectFlowaudit record);
-
-    int insertSelective(GspwMonprojectFlowaudit record);
-
-    List<GspwMonprojectFlowaudit> selectByExample(GspwMonprojectFlowauditExample example);
-
-    GspwMonprojectFlowaudit selectByPrimaryKey(String monprojectFlowauditId);
-
-    int updateByExampleSelective(@Param("record") GspwMonprojectFlowaudit record, @Param("example") GspwMonprojectFlowauditExample example);
-
-    int updateByExample(@Param("record") GspwMonprojectFlowaudit record, @Param("example") GspwMonprojectFlowauditExample example);
-
-    int updateByPrimaryKeySelective(GspwMonprojectFlowaudit record);
-
-    int updateByPrimaryKey(GspwMonprojectFlowaudit record);
 }
+
+
+
+

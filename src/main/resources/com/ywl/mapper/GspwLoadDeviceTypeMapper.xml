@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwLoadDeviceTypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwLoadDeviceType">
+            <id property="devicetypeId" column="devicetype_id" jdbcType="INTEGER"/>
+            <result property="devicetypeName" column="devicetype_name" jdbcType="VARCHAR"/>
+            <result property="deleteMark" column="delete_mark" jdbcType="INTEGER"/>
+            <result property="deviceState" column="device_state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        devicetype_id,devicetype_name,delete_mark,device_state
+    </sql>
+</mapper>

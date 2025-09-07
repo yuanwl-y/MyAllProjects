@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywl.mapper.GspwLoadTimeMapper">
+
+    <resultMap id="BaseResultMap" type="com.ywl.domain.GspwLoadTime">
+            <id property="timeId" column="time_id" jdbcType="INTEGER"/>
+            <result property="timeDetails" column="time_details" jdbcType="VARCHAR"/>
+            <result property="timeOrgCode" column="time_org_code" jdbcType="VARCHAR"/>
+            <result property="timeScoreId" column="time_score_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        time_id,time_details,time_org_code,time_score_id
+    </sql>
+</mapper>
